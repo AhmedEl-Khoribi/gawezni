@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2018 at 01:48 PM
+-- Generation Time: Jun 11, 2018 at 03:56 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -33,12 +33,19 @@ CREATE TABLE `admins` (
   `username` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `permission` int(11) NOT NULL,
+  `permission` int(11) DEFAULT NULL,
   `online_status` enum('online','offline') COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `username`, `email`, `password`, `permission`, `online_status`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'AhmedReda', 'reda@example.com', '$2y$10$VeMpeLMYeudpKekWYZ9v8ugrH1GaZyE0vgJRIg1zarzkwyWboI78u', 1, 'online', 'NrpCTSOimbOE8UmSbM4Mz00dbYqn8wEMDHeHuP6VWveDswAlMgyRloPvzM6e', '2018-06-09 22:00:00', '2018-06-09 22:00:00');
 
 -- --------------------------------------------------------
 
@@ -80,6 +87,13 @@ CREATE TABLE `cities` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `cities`
+--
+
+INSERT INTO `cities` (`id`, `country_id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Cairo', NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -119,6 +133,13 @@ CREATE TABLE `clients` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`id`, `fname`, `lname`, `email`, `password`, `username`, `phone`, `gender`, `main_description`, `city_id`, `other_person_description`, `dob`, `marraige_status`, `social_status`, `children_number`, `weight`, `height`, `skin_color`, `physique`, `education`, `financial_status`, `health_details`, `career_field`, `job`, `salary`, `online`, `image`, `approved`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Ahmed', 'Reda', 'reda@gtsaw.com', '$2y$10$VeMpeLMYeudpKekWYZ9v8ugrH1GaZyE0vgJRIg1zarzkwyWboI78u', 'RedarEda', '0122586688', 'male', 'akhscbdsa cvdkjasfvbndslfds cdslvbdv bdkfbedf wed cfef bedfc wfbepfcw\r\n\r\nvwebfcewdfefwe', 1, 'dghjtnrf rhttrbhrth', '2018-06-06', 'second', 'divorced', 6, '79', '175', '7enty_dark', 'medium_thin', 'university', 'poor', 'no', 'mechanical', 'programmer', '9000', 'online', 'null', 'not_approved', NULL, NULL, '2018-06-11 11:52:49');
 
 -- --------------------------------------------------------
 
@@ -163,6 +184,13 @@ CREATE TABLE `countries` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `countries`
+--
+
+INSERT INTO `countries` (`id`, `name`, `currency`, `created_at`, `updated_at`) VALUES
+(1, 'Egypt', 'egp', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -412,7 +440,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `blacklists`
@@ -424,13 +452,13 @@ ALTER TABLE `blacklists`
 -- AUTO_INCREMENT for table `cities`
 --
 ALTER TABLE `cities`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -442,7 +470,7 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `friends`
