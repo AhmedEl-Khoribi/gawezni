@@ -28,6 +28,9 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
   Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
   Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
+
+  Route::resource('country','CountryController');
+  Route::resource('city','CityController');
 });
 
 Route::group(['prefix' => 'client'], function () {
