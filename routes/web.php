@@ -24,6 +24,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
   Route::get('/users', 'dashboard\ClientsController@index');
   Route::get('/approve/{id}', 'dashboard\ClientsController@approve');
   Route::get('/unapprove/{id}', 'dashboard\ClientsController@block');
+  Route::get('/details/{id}', 'dashboard\ClientsController@show');
+  Route::get('/edit_user/{id}', 'dashboard\ClientsController@edit');
 
   Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
   Route::post('/register', 'AdminAuth\RegisterController@register');

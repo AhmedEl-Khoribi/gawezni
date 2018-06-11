@@ -28,7 +28,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-files-o"></i>
+            <i class="fa fa-users"></i>
             <span>Clients</span>
             <span class="pull-right-container">
               @php
