@@ -15,9 +15,9 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        $not_approved = Client::where('approved', 'not_approved')->orderBy('created_at', 'desc');
+        $not_approved = Client::where('approved', 'not_approved')->orderBy('created_at', 'desc')->get();
 
-        $approved = Client::where('approved', 'approved')->orderBy('created_at', 'desc');
+        $approved = Client::where('approved', 'approved')->orderBy('created_at', 'desc')->get();
 
         return view('admin.users', compact('not_approved', 'approved'));
     }
@@ -86,5 +86,25 @@ class ClientsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function approve($id)
+    {
+        $user = Client::where('id', $id)->update(['approved' => 'approved']);
+
+        session()->flash('message', 'User is approved');
+
+        return back();
+
+    }
+
+    public function block($id)
+    {
+        $block = Client::where('id', $id)->update(['approved' => 'not_approved']);
+
+        session()->flash('message', 'User is blocked');
+
+        return back();
+
     }
 }

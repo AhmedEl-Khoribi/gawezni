@@ -20,7 +20,11 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
   Route::get('/logout', 'AdminAuth\LoginController@logout')->name('logout');
+
   Route::get('/users', 'dashboard\ClientsController@index');
+  Route::get('/approve/{id}', 'dashboard\ClientsController@approve');
+  Route::get('/unapprove/{id}', 'dashboard\ClientsController@block');
+
   Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
   Route::post('/register', 'AdminAuth\RegisterController@register');
 
