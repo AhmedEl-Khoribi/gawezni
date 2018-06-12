@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Country;
 use Illuminate\Http\Request;
 
 class CountryController extends Controller
@@ -13,6 +14,8 @@ class CountryController extends Controller
      */
     public function index()
     {
+        $countery = Country::OrderBy('created','DESC')->get();
+//        return view('add',);
     }
 
     /**
