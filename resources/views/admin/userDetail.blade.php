@@ -145,10 +145,18 @@ div.portfoliocard div.follow_count{
 }
 
 </style>
+@if($flash = session('message'))
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <b>{{ $flash }}</b>
+</div>
+@endif
 <div class="portfoliocard">
 		<div class="coverphoto"></div>
 		<div class="profile_picture"></div>
-		<a href="/admin/edit_user/{{ $user->id }}"><button class="btn btn-success" style="float: right; margin-right: 15px" >Edit</button></a>
+		<a href="/admin/edit_user/{{ $user->id }}" class="btn btn-app" style="float: right; margin-right: 15px">
+                <i class="fa fa-edit"></i> Edit
+        </a>
 		<div class="left_col">
 			<div class="row">
 			<div class="col-sm-6">
