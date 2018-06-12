@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
+use App\Country;
 use Illuminate\Http\Request;
 
 class CityController extends Controller
@@ -24,7 +26,8 @@ class CityController extends Controller
     public function create()
     {
         $city = 1 ;
-        return view('admin.addCountry',compact('admin.city'));
+        $cityCountry = Country::get();
+        return view('admin.add',compact(['city','cityCountry']));
     }
 
     /**
@@ -35,7 +38,12 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request , [
+            'name' => 'required|string',
+            'country_id'=> 'required|integer'
+        ]);
+        City::create($request->all());
+        return redirect()->back()->with('message','Successfull Adding The Country');
     }
 
     /**
@@ -57,7 +65,9 @@ class CityController extends Controller
      */
     public function edit($id)
     {
-        //
+        $countryCity = City::find($id);
+        $cntry = Country::get();
+        return view('admin.edit',compact(['countryCity','cntry']));
     }
 
     /**
@@ -69,7 +79,12 @@ class CityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request , [
+            'name' => 'required|string',
+            'country_id'=> 'required|integer'
+        ]);
+        City::find($id)->update($request->all());
+        return redirect()->back()->with('message','Successfull Editting The City');
     }
 
     /**
@@ -80,6 +95,7 @@ class CityController extends Controller
      */
     public function destroy($id)
     {
-        //
+        City::find($id)->delete();
+        return redirect()->back()->with('message','success delete this city');
     }
 }

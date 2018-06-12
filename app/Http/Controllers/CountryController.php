@@ -14,8 +14,8 @@ class CountryController extends Controller
      */
     public function index()
     {
-        $countery = Country::OrderBy('created','DESC')->get();
-//        return view('add',);
+        $counteryCity = Country::OrderBy('created_at','DESC')->get();
+        return view('admin.show', compact('counteryCity'));
     }
 
     /**
@@ -26,7 +26,7 @@ class CountryController extends Controller
     public function create()
     {
         $country = 1 ;
-        return view('admin.addCountry',compact('country'));
+        return view('admin.add',compact('country'));
     }
 
     /**
@@ -37,7 +37,12 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|string',
+            'currency' => 'required|string'
+        ]);
+        Country::create($request->all());
+        return redirect()->back()->with('message','Successfull Adding The Country');
     }
 
     /**
@@ -59,7 +64,8 @@ class CountryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $country = Country::find($id);
+        return view('admin.edit',compact('country'));
     }
 
     /**
@@ -71,7 +77,12 @@ class CountryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|string',
+            'currency' => 'required|string'
+        ]);
+        Country::find($id)->update($request->all());
+        return redirect()->back()->with('message','Successfull Editting The Country');
     }
 
     /**
@@ -82,6 +93,7 @@ class CountryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Country::find($id)->delete();
+        return redirect()->back()->with('message','success delete this countery');
     }
 }
