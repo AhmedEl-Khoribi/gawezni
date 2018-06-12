@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\dashboard;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Client;
 
 class ClientsController extends Controller
 {
@@ -13,7 +15,11 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        //
+        $not_approved = Client::where('approved', 'not_approved')->orderBy('created_at', 'desc');
+
+        $approved = Client::where('approved', 'approved')->orderBy('created_at', 'desc');
+
+        return view('admin.users', compact('not_approved', 'approved'));
     }
 
     /**
