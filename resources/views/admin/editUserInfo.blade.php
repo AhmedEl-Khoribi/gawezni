@@ -80,7 +80,7 @@
         <div class="col-xs-5">
         <div class="form-group">
           <label>Gender</label>
-          <select class="form-control" name="gender">
+          <select class="form-control" name="gender" id="gender">
             <option value="male" @if($user->gender === "male") {{ 'selected' }} @endif>Male</option>
             <option value="female" @if($user->gender === "female") {{ 'selected' }} @endif>Female</option>
           </select>
@@ -100,6 +100,25 @@
     </div>
 	</div>
 	</div>
+	<div class="col-xs-4">
+    <div class="form-group">
+      <label>Country</label>
+      <select class="form-control" id="country">
+      	@foreach($countries as $country)
+        <option value="{{ $country->id }}" @if($user->city->country->name === $country->name) {{ 'selected' }} @endif>{{  $country->name }}
+        </option>
+        @endforeach
+      </select>
+    </div>
+    </div>
+    <div class="col-xs-4">
+    <div class="form-group" style="display: none;" id="cityDisplay">
+      <label>City</label>
+      <select class="form-control" id="city" name="city_id">
+        <option value="1">choose City</option>
+      </select>
+    </div>
+    </div>
   </div>
 </div>
 <div class="box box-success">
@@ -111,7 +130,7 @@
         <div class="col-xs-3">
         <div class="form-group">
           <label>Social Status</label>
-          <select class="form-control" name="social_status">
+          <select class="form-control" name="social_status" id="social_single">
             <option value="single" @if($user->social_status === "single") {{ 'selected' }} @endif>Single</option>
             <option value="married" @if($user->social_status === "married") {{ 'selected' }} @endif>Married</option>
             <option value="divorced" @if($user->social_status === "divorced") {{ 'selected' }} @endif>Divorced</option>
@@ -120,7 +139,7 @@
         </div>
         </div>
         @if($user->gender === 'male')
-        <div class="col-xs-3">
+        <div class="col-xs-3" id="marraige12">
         <div class="form-group">
           <label>Number Of Wives</label>
           <select class="form-control" name="marraige_status">
@@ -133,7 +152,7 @@
       </div>
       @endif
       @if($user->social_status === 'married' || $user->social_status === 'divorced')
-      <div class="col-xs-4">
+      <div class="col-xs-4" id="numberChild">
         <label>Number Of Children</label>
           <input type="text" name="children_number" class="form-control" value="{{ $user->children_number }}">
       </div>
@@ -233,4 +252,13 @@
 <button type="submit" class="btn btn-success btn-block btn-flat">Edit User's Info</button>
 </div>
 </form>
+@if(count($errors))
+<div class="alert alert-danger">
+<ul>
+    @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+    @endforeach
+</ul>
+</div>
+@endif
 @endsection

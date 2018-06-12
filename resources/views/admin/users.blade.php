@@ -1,9 +1,14 @@
 @extends('admin.master')
 @section('content')
-
+@php
+  $do = (isset($_GET['do'])) ? $_GET['do'] : 'blocked' ;
+@endphp
 <div class="box">
             <div class="box-header">
               <h3 class="box-title">Data Table For Not Approved Users</h3>
+              <center>
+                <a href="/admin/users?do=blocked"><button class="btn btn-link">Not-Approved/Blocked Users</button></a> || <a href="/admin/users?do=approved"><button class="btn btn-link">Approved Users</button></a>
+              </center>
             </div>
 @if($flash = session('message'))
 <div class="alert">
@@ -11,7 +16,7 @@
     <b>{{ $flash }}</b>
 </div>
 @endif
-            <!-- /.box-header -->
+ @if($do === 'blocked')
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -20,6 +25,7 @@
                   <th>Username</th>
                   <th>Email</th>
                   <th>Approved / Not Approved</th>
+                  <th>Edit / Delete</th>
                   <th>View Details</th>
                 </tr>
                 </thead>
@@ -35,6 +41,14 @@
                     </a>
                   </td>
                   <td>
+                    <a href="/admin/edit_user/{{ $userz->id }}" class="btn btn-app">
+                         <i class="fa fa-edit"></i> Edit
+                    </a>
+                    <a href="/admin/delete/{{ $userz->id }}" class="btn btn-app">
+                         <i class="fa fa-close"></i> Delete
+                    </a>
+                  </td>
+                  <td>
                   <a href="/admin/details/{{ $userz->id }}">
                     <button type="button" class="btn btn-default btn-block">View User Details</button>
                   </a>
@@ -44,9 +58,9 @@
                 </tbody>
               </table>
             </div>
-            <!-- /.box-body -->
           </div>
-<hr>
+@endif
+ @if($do === 'approved')
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Data Table For Approved Users</h3>
@@ -60,6 +74,7 @@
                   <th>Username</th>
                   <th>Email</th>
                   <th>Approved / Not Approved</th>
+                  <th>Edits / Deletes</th>
                   <th>View Details</th>
                 </tr>
                 </thead>
@@ -71,7 +86,15 @@
                   <td>{{ $user->email }}</td>
                   <td>
                     <a href="/admin/unapprove/{{ $user->id }}">
-                      <button type="button" class="btn bg-navy btn-flat margin">Block User</button>
+                      <button type="button" class="btn bg-purple btn-flat margin">Block User</button>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="/admin/edit_user/{{ $user->id }}" class="btn btn-app">
+                         <i class="fa fa-edit"></i> Edit
+                    </a>
+                    <a href="/admin/delete/{{ $user->id }}" class="btn btn-app">
+                         <i class="fa fa-close"></i> Delete
                     </a>
                   </td>
                   <td>
@@ -84,6 +107,6 @@
                 </tbody>
               </table>
             </div>
-            <!-- /.box-body -->
           </div>
+@endif
 @endsection

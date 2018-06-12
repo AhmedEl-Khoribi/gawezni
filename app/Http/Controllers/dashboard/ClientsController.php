@@ -68,7 +68,9 @@ class ClientsController extends Controller
     {
         $user = Client::find($id);
 
-        return view('admin.editUserInfo', compact('user'));
+        $countries = Country::all();
+
+        return view('admin.editUserInfo', compact('user', 'countries'));
     }
 
     /**
@@ -90,7 +92,6 @@ class ClientsController extends Controller
             'fname'=>'required',
             'lname'=>'required',
             'dob'=>'required',
-            'children_number'=>'required',
             'main_description'=>'required',
             'other_person_description'=>'required',
             'weight'=>'required|numeric',
@@ -113,7 +114,11 @@ class ClientsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Client::find($id)->delete();
+
+        session()->flash('message', 'User is Deleted Successfully...');
+
+        return redirect('/admin/users');
     }
 
     public function approve($id)
@@ -203,5 +208,15 @@ class ClientsController extends Controller
         session()->flash('message', 'Countries are generated Success');
 
         return redirect('/admin/users');
+    }
+    public function city ($id)
+    {
+        $cities = City::where('country_id', $id)->get();
+        $data = '';
+        foreach($cities as $city)
+        {
+            $data .= '<option value="' . $city->id . '">' . $city->name .' </option>';
+        }
+        return response()->Json(['message' => $data]);
     }
 }

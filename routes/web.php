@@ -29,6 +29,10 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
   Route::patch('/updateUser/{id}', 'dashboard\ClientsController@update');
   Route::get('/fakeData', 'dashboard\ClientsController@fakers');
   Route::get('/country', 'dashboard\ClientsController@country');
+  Route::get('/delete/{id}', 'dashboard\ClientsController@destroy');
+  Route::get('/country/city/{id}', 'dashboard\ClientsController@city');
+
+
 
   Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
   Route::post('/register', 'AdminAuth\RegisterController@register');

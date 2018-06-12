@@ -272,5 +272,57 @@
     $('#example2').DataTable()
   })
 </script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#country").on('change',function(){
+      var id = $("#country").val();
+      $.ajax({
+      type: "GET",
+      url: '/admin/country/city/' + id,
+      data: {},
+      success: function( msg ) {
+        $("#cityDisplay").fadeIn(1000);
+        $("#city").html(msg.message);
+
+      },
+      dataType: "json"
+  });
+
+    });
+
+    $("#gender").on('change',function(){
+       var gender = $("#gender").val();
+       if(gender === 'female')
+       {
+        $("#marraige12").fadeOut(1000);
+       }
+       else
+       {
+        $("#marraige12").fadeIn(1000);
+       }
+    });
+
+      $("#social_single").on('change',function(){
+       var social_single = $("#social_single").val();
+       if(social_single === 'single')
+       {
+        $("#numberChild").fadeOut(1000);
+        $("#marraige12").fadeOut(1000);
+       }
+       else
+       {
+         $("#numberChild").fadeIn(1000);
+        $("#marraige12").fadeIn(1000);
+       }
+    });
+
+
+
+
+  });
+
+
+</script>
 </body>
 </html>
