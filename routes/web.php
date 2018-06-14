@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'FrontController@index');
+Route::get('index','FrontController@index');
+//Route::get('login','FrontController@lo');
+Route::get('maleRegister','FrontController@MaleRegisterForm');
+Route::post('maleRegister','FrontController@MaleRegister');
+Route::get('femaleRegister','FrontController@FemaleRegisterForm');
+Route::post('femaleRegister','FrontController@FemaleRegister');
+Route::get('city/{id}','FrontController@city');
+
 
   Route::get('/admin/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
   Route::post('/admin/login', 'AdminAuth\LoginController@login');
@@ -30,6 +36,9 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
   Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
   Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
+
+  Route::resource('country','CountryController');
+  Route::resource('city','CityController');
 });
 
 Route::group(['prefix' => 'client'], function () {
