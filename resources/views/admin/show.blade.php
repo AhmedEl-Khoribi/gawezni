@@ -62,7 +62,7 @@
                                             <td>{{ $country->name }}</td>
                                             <td>{{ $country->currency }}</td>
                                             <td>{{ $cityName }}</td>
-                                            <td>{{ $country->created_at->diffForHumans() }}</td>
+                                            <td>{{ $country->created_at }}</td>
                                             <td>
                                                 <a href="{{ url('admin/country/'. $country->id . '/edit') }}" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>
                                                 <a>

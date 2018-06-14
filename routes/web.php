@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'FrontController@index');
+Route::get('index','FrontController@index');
+//Route::get('login','FrontController@lo');
+Route::get('maleRegister','FrontController@MaleRegisterForm');
+Route::post('maleRegister','FrontController@MaleRegister');
+Route::get('femaleRegister','FrontController@FemaleRegisterForm');
+Route::post('femaleRegister','FrontController@FemaleRegister');
+Route::get('city/{id}','FrontController@city');
+
 
   Route::get('/admin/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
   Route::post('/admin/login', 'AdminAuth\LoginController@login');
