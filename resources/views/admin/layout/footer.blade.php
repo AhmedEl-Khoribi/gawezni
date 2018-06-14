@@ -4,9 +4,9 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>GTSAW Panel</b> V-2.4.0
+      <b>GTSAW Panel</b> V-2.2.0
     </div>
-    <strong>Copyright &copy; {{ date('Y') }} <a href="https://adminlte.io">GTSAW</a>.</strong> All rights
+    <strong>Copyright &copy; {{ date('Y') }} <a href="http://gtsaw.com/">GTSAW</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -232,8 +232,6 @@
 <script src="/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- datepicker -->
 <script src="/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <!-- Slimscroll -->
 <script src="/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -244,33 +242,84 @@
 <script src="/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- DataTables -->
 <script src="/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<!-- SlimScroll -->
-<script src="/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- FastClick -->
-<script src="/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="/dist/js/adminlte.min.js"></script>
+<script src="/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
 <!-- page script -->
+<script src="/bower_components/ckeditor/ckeditor.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<script>
+  $(function () {
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('editor1')
+    //bootstrap WYSIHTML5 - text editor
+    $('.textarea').wysihtml5()
+  })
+</script>
 <script>
   $(function () {
     $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
+    $('#example2').DataTable()
   })
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#country").on('change',function(){
+      var id = $("#country").val();
+      $.ajax({
+      type: "GET",
+      url: '/admin/country/city/' + id,
+      data: {},
+      success: function( msg ) {
+        $("#cityDisplay").fadeIn(1000);
+        $("#city").html(msg.message);
+
+      },
+      dataType: "json"
+  });
+
+    });
+
+    $("#gender").on('change',function(){
+       var gender = $("#gender").val();
+       if(gender === 'female')
+       {
+        $("#marraige12").fadeOut(1000);
+       }
+       else
+       {
+        $("#marraige12").fadeIn(1000);
+       }
+    });
+
+      $("#social_single").on('change',function(){
+       var social_single = $("#social_single").val();
+       if(social_single === 'single')
+       {
+        $("#numberChild").fadeOut(1000);
+        $("#marraige12").fadeOut(1000);
+       }
+       else
+       {
+         $("#numberChild").fadeIn(1000);
+        $("#marraige12").fadeIn(1000);
+       }
+    });
+
+
+
+
+  });
+
+
 </script>
 </body>
 </html>
