@@ -58,7 +58,7 @@
                                         $cityName = trim($cityName,' , ');
                                         ?>
                                         <tr>
-                                            <td>{{ $i }}</td>
+                                            <td>{{ $country->id }}</td>
                                             <td>{{ $country->name }}</td>
                                             <td>{{ $country->currency }}</td>
                                             <td>{{ $cityName }}</td>
