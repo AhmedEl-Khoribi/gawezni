@@ -42,7 +42,7 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-users"></i>
+            <i class="fa fa-files-o"></i>
             <span>Clients</span>
             <span class="pull-right-container">
               @php
@@ -54,6 +54,7 @@
           <ul class="treeview-menu">
             <li><a href="/admin/users"><i class="fa fa-circle-o"></i> Show Clients</a></li>
             <li><a href="/admin/fakeData"><i class="fa fa-circle-o"></i> Add Fake 10 Users</a></li>
+          
           </ul>
         </li>
         <li>
