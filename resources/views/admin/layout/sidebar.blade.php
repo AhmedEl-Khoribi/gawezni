@@ -54,8 +54,6 @@
           <ul class="treeview-menu">
             <li><a href="/admin/users"><i class="fa fa-circle-o"></i> Show Clients</a></li>
             <li><a href="/admin/fakeData"><i class="fa fa-circle-o"></i> Add Fake 10 Users</a></li>
-            <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
           </ul>
         </li>
         <li>
