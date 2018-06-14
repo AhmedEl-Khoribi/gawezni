@@ -53,7 +53,7 @@ class Client extends Authenticatable
 
     public function city ()
     {
-        return $this->belongsTo(City::class);
+        return $this->blongsTo(City::class);
     }
 
     public function successStories()
