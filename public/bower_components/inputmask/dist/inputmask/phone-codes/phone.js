@@ -1982,7 +1982,7 @@
             }, {
                 mask: "+39-6-698-#####",
                 cc: "VA",
-                cd: "Vatican City",
+                cd: "Vatican CityController",
                 desc_en: "",
                 name_ru: "Ватикан",
                 desc_ru: ""

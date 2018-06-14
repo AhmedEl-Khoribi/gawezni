@@ -22,6 +22,20 @@
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Countries & Cities</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right">{{ App\Country::count()  }}</span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('country.create') }}"><i class="fa fa-circle-o"></i> Add Country</a></li>
+            <li><a href="{{ route('city.create') }}"><i class="fa fa-circle-o"></i> Add Cities</a></li>
+            <li><a href="{{ route('country.index') }}"><i class="fa fa-circle-o"></i> Show All Countries & Cities </a></li>
+          </ul>
+        </li>
           <ul class="treeview-menu">
             <li class="active"><a href="/admin/home"><i class="fa fa-circle-o"></i>Dashboard</a></li>
           </ul>
