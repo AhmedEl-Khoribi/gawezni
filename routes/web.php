@@ -20,20 +20,7 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
   Route::get('/logout', 'AdminAuth\LoginController@logout')->name('logout');
-
   Route::get('/users', 'dashboard\ClientsController@index');
-  Route::get('/approve/{id}', 'dashboard\ClientsController@approve');
-  Route::get('/unapprove/{id}', 'dashboard\ClientsController@block');
-  Route::get('/details/{id}', 'dashboard\ClientsController@show');
-  Route::get('/edit_user/{id}', 'dashboard\ClientsController@edit');
-  Route::patch('/updateUser/{id}', 'dashboard\ClientsController@update');
-  Route::get('/fakeData', 'dashboard\ClientsController@fakers');
-  Route::get('/country', 'dashboard\ClientsController@country');
-  Route::get('/delete/{id}', 'dashboard\ClientsController@destroy');
-  Route::get('/country/city/{id}', 'dashboard\ClientsController@city');
-
-
-
   Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
   Route::post('/register', 'AdminAuth\RegisterController@register');
 
