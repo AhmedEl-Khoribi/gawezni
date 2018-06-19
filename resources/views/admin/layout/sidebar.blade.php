@@ -66,7 +66,6 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="/admin/site_info"><i class="fa fa-circle-o"></i> View Information</a></li>
-            <li><a href="/admin/add_site_info"><i class="fa fa-plus"></i> Add Information</a></li>            
           </ul>
         </li>
         <li class="treeview">
