@@ -223,7 +223,7 @@
             </option>
             <option value="sporty" @if($user->physique === "sporty") {{ 'selected' }} @endif>Sporty</option>
             <option value="fat" @if($user->physique === "fat") {{ 'selected' }} @endif>Fat</option>
-			<option value="huge" @if($user->physique === "huge") {{ 'selected' }} @endif>Huge</option>
+			      <option value="huge" @if($user->physique === "huge") {{ 'selected' }} @endif>Huge</option>
           </select>
         </div>
       </div>

@@ -98,7 +98,7 @@ class ClientsController extends Controller
     public function destroy($id)
     {
         Client::find($id)->delete();
-        session()->flash('message', 'User is Deleted Successfully...');
+        session()->flash('deleted', 'User is Deleted Successfully...');
         return redirect('/admin/users');
     }
     public function approve($id)

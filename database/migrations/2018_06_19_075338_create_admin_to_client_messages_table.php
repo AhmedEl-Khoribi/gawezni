@@ -19,6 +19,7 @@ class CreateAdminToClientMessagesTable extends Migration
             $table->integer('receiver_id')->unsigned();
             $table->enum('is_read', ['seen', 'unseen'])->default('unseen');
             $table->longText('body');
+            $table->enum('is_admin', ['yes', 'no']);
             $table->timestamps();
         });
     }
