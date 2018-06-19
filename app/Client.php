@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\City;
 use App\SuccessStory;
+use App\AdminToClientMessages;
 
 class Client extends Authenticatable
 {
@@ -53,7 +54,7 @@ class Client extends Authenticatable
 
     public function city ()
     {
-        return $this->blongsTo(City::class);
+        return $this->belongsTo(City::class);
     }
 
     public function successStories()
@@ -70,5 +71,5 @@ class Client extends Authenticatable
     {
         return $this->belongsToMany(Client::class, 'mails', 'sender_id', 'receiver_id');
     }
-    
+
 }
