@@ -65,9 +65,6 @@
             <a href="/admin/edit_info/{{ $info->id }}" class="btn btn-app">
                  <i class="fa fa-edit"></i> Edit
             </a>
-            <a href="/admin/delete_info/{{ $info->id }}" class="btn btn-app">
-                 <i class="fa fa-close"></i> Delete
-            </a>
           </td>
         </tr>
 @endforeach
