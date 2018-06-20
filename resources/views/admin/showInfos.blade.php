@@ -15,7 +15,7 @@
 
 <div class="box">
             <div class="box-header">
-  <h3 class="box-title">Data Table For Not Approved Users</h3>
+  <h3 class="box-title">Data Table For Site Information</h3>
 </div>
     <div class="box-body">
       <table id="example1" class="table table-bordered table-striped">
