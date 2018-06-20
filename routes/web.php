@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
   Route::get('/register', 'AdminAuth\RegisterController@showRegistrationForm')->name('register');
   Route::post('/register', 'AdminAuth\RegisterController@register');
 
+  //clients
   Route::get('/users', 'dashboard\ClientsController@index');
   Route::get('/approve/{id}', 'dashboard\ClientsController@approve');
   Route::get('/unapprove/{id}', 'dashboard\ClientsController@block');
@@ -39,7 +40,41 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
   Route::get('/country', 'dashboard\ClientsController@country');
   Route::get('/delete/{id}', 'dashboard\ClientsController@destroy');
   Route::get('/country/city/{id}', 'dashboard\ClientsController@city');
-  
+
+  //messages
+  Route::get('/send_message/{id}', 'dashboard\MessageToClientsController@index');
+  Route::get('/send/message', 'dashboard\MessageToClientsController@sendMessage');
+
+  //site info
+  Route::get('/site_info', 'dashboard\SiteInfoController@index');
+  Route::get('/add_site_info', 'dashboard\SiteInfoController@create');
+  Route::get('/edit_info/{id}', 'dashboard\SiteInfoController@edit');
+  Route::get('/delete_info/{id}', 'dashboard\SiteInfoController@destroy');
+  Route::patch('/updateSiteInfo/{id}', 'dashboard\SiteInfoController@update');
+
+  //about us
+  Route::get('/about-us', 'dashboard\OtherSiteInfoController@showAboutUs');
+  Route::get('/edit_about_us/{id}', 'dashboard\OtherSiteInfoController@editAboutUs');
+  Route::patch('/updateAboutUs/{id}', 'dashboard\OtherSiteInfoController@updateAboutUs');
+
+  //Contact us
+  Route::get('/contact_us', 'dashboard\OtherSiteInfoController@showContactUs');
+  Route::get('/edit_contact_us/{id}', 'dashboard\OtherSiteInfoController@editContactUs');
+  Route::patch('/updateContactUs/{id}', 'dashboard\OtherSiteInfoController@updateContactUs');
+
+  //FAQS
+  Route::get('/faqs', 'dashboard\OtherSiteInfoController@showFAQ');
+  Route::get('/edit_faqs/{id}', 'dashboard\OtherSiteInfoController@editFAQ');
+  Route::patch('/updateFAQS/{id}', 'dashboard\OtherSiteInfoController@updateFAQ');
+  Route::get('/createFaqs', 'dashboard\OtherSiteInfoController@createFAQ');
+  Route::post('/storeFaq', 'dashboard\OtherSiteInfoController@storeFAQ');
+  Route::get('/delete_faq/{id}', 'dashboard\OtherSiteInfoController@destroyFaq');
+
+  //MailBox
+  Route::get('/mailbox', 'dashboard\MessageToClientsController@seeAll');
+
+
+  //resets
   Route::post('/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
   Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
   Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');

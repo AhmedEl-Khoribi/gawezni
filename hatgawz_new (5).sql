@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2018 at 10:40 AM
+-- Generation Time: Jun 20, 2018 at 11:02 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `hatgawz_new`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_us`
+--
+
+CREATE TABLE `about_us` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `desc` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `about_us`
+--
+
+INSERT INTO `about_us` (`id`, `title`, `desc`) VALUES
+(1, 'Gawzni SIte about us', '<p>dhcbdbc csadjcjkcd scdjckacds dhkfkds fkajfbdf sfsdjkggdf cdjadjcdjc djcdjcndac dcdjcaalkcdjc dkcjdncndciecd cadkcjcjdcnjac ajkcdcjkdscj d caljdkcndajc dj cadjc djc jdaadjc dlj cldjc djc d jc dljcjdc d ca cc dja d djdjj d cdjcjdlsdld cdjcjs</p>');
 
 -- --------------------------------------------------------
 
@@ -69,11 +88,26 @@ CREATE TABLE `admin_to_client_messages` (
   `id` int(11) NOT NULL,
   `sender_id` int(11) UNSIGNED NOT NULL,
   `receiver_id` int(11) UNSIGNED NOT NULL,
-  `is_read` enum('seen','unseen') NOT NULL,
+  `is_read` enum('seen','unseen') NOT NULL DEFAULT 'unseen',
   `body` longtext NOT NULL,
+  `is_admin` enum('yes','no') NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admin_to_client_messages`
+--
+
+INSERT INTO `admin_to_client_messages` (`id`, `sender_id`, `receiver_id`, `is_read`, `body`, `is_admin`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'unseen', '<p>grgwgfew</p>', 'yes', '2018-06-19 09:06:40', '2018-06-19 09:06:40'),
+(2, 1, 3, 'unseen', '<p>rtghrhbgeg</p>', 'yes', '2018-06-19 09:12:36', '2018-06-19 09:12:36'),
+(3, 2, 3, 'unseen', '<p>rtghrhbgeg</p>', 'no', '2018-06-19 09:14:17', '2018-06-19 09:14:17'),
+(4, 9, 3, 'unseen', '<p>rtghrhbgeg</p>', 'no', '2018-06-19 09:14:45', '2018-06-19 09:14:45'),
+(5, 10, 3, 'unseen', '<p>rtghrhbgeg</p>', 'no', '2018-06-19 09:15:53', '2018-06-19 09:15:53'),
+(6, 1, 3, 'unseen', '<p>rtghrhbgeg</p>', 'yes', '2018-06-19 09:16:33', '2018-06-19 09:16:33'),
+(7, 1, 3, 'unseen', '<p>rtghrhbgeg</p>', 'yes', '2018-06-19 09:16:52', '2018-06-19 09:16:52'),
+(8, 1, 3, 'unseen', '<p>rtghrhbgeg</p>', 'yes', '2018-06-19 09:16:59', '2018-06-19 09:16:59');
 
 -- --------------------------------------------------------
 
@@ -153,7 +187,7 @@ CREATE TABLE `clients` (
   `main_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `city_id` int(10) UNSIGNED NOT NULL,
   `other_person_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dob` date NOT NULL,
+  `dob` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `marraige_status` enum('first','second','third','fourth') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `social_status` enum('single','married','divorced','willow') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'single',
   `children_number` tinyint(4) DEFAULT NULL,
@@ -180,7 +214,6 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `fname`, `lname`, `email`, `password`, `username`, `phone`, `gender`, `main_description`, `city_id`, `other_person_description`, `dob`, `marraige_status`, `social_status`, `children_number`, `weight`, `height`, `skin_color`, `physique`, `education`, `financial_status`, `health_details`, `career_field`, `job`, `salary`, `online`, `image`, `approved`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Ahmed', 'Reda', 'reda@gtsaw.com', '$2y$10$VeMpeLMYeudpKekWYZ9v8ugrH1GaZyE0vgJRIg1zarzkwyWboI78u', 'RedarEda', '0122586688', 'male', '<p>akhscbdsa cvdkjasfvbndslfds cdslvbdv bdkfbedf wed cfef bedfc wfbepfcw vwebfcewdfefwe</p>', 1, 'dghjtnrf rhttrbhrth', '2018-06-06', 'second', 'married', 6, '79', '175', '7enty_dark', 'medium_thin', 'university', 'poor', 'none', 'mechanical', 'programmer', '9000', 'online', 'null', 'not_approved', NULL, NULL, '2018-06-12 11:56:29'),
 (2, 'Oren', 'Block', 'adams.elyse@example.org', '$2y$10$UUJod/Rqw13yVBnHLznJs./2k4M5hd6k79X05.vUY7l4jwWE7ICX2', 'nbayer', '320-616-5334 x8165', 'male', 'Eos ab quibusdam magnam consequatur. Est sed sint exercitationem inventore voluptas atque aut. Fuga minima alias ut qui qui soluta maiores suscipit. Quis minima aut ut aliquid est.', 1, 'Et dolor ipsam doloremque quia quaerat assumenda. Ut aut est excepturi incidunt delectus molestiae qui. Laboriosam nesciunt nulla harum. Autem harum qui accusamus in.', '1975-01-22', NULL, 'single', 4, '74', '145', 'white', 'sporty', 'high_school', 'rich', 'Libero labore sint et.', 'Cartoonist', 'Adams, Buckridge and Mann', '7', 'online', NULL, 'approved', NULL, '2018-06-12 09:58:56', '2018-06-12 10:43:37'),
 (3, 'Chanel', 'Bayer', 'justen.hammes@example.com', '$2y$10$Zz5Ljq2JLFu0dvLlNpKaIO8mIghNwPJIJ1W.h5ISvrVJMDc7Htgpq', 'thurman.bernhard', '(668) 999-5427', 'male', 'Voluptas molestiae dolorem suscipit nemo enim dignissimos ipsam. Dolore nihil et qui dolorum. Laborum sed vel quaerat incidunt doloremque quae eos.', 1, 'Rerum repellendus facilis porro quos similique et est. Sunt eaque sit ipsum beatae qui praesentium ut. Et est ut ut nesciunt pariatur veritatis.', '1984-06-13', NULL, 'single', 5, '82', '191', 'white', 'sporty', 'high_school', 'rich', 'Id fugiat quia sit.', 'Bookbinder', 'Walter PLC', '4', 'online', NULL, 'not_approved', NULL, '2018-06-12 09:58:57', '2018-06-12 09:58:57'),
 (6, 'Alice', 'Price', 'nwalsh@example.org', '$2y$10$EP28nfQYrk59ho/BsWZPDuHoqWui2KlOmytEZOxZNzsJGJ6c70Ytu', 'mabelle64', '+18238324943', 'male', 'Facilis numquam in expedita dolorum. Reprehenderit mollitia voluptate error molestias explicabo. Sequi asperiores sunt ex et.', 1, 'Minima soluta sunt ex adipisci officiis earum qui. Autem hic praesentium necessitatibus voluptatem. Optio perspiciatis sed aut possimus qui blanditiis culpa. Sunt sit asperiores atque earum.', '1980-08-28', NULL, 'single', 5, '66', '194', 'white', 'sporty', 'high_school', 'rich', 'Sit aut rerum adipisci.', 'Photographic Developer', 'Hansen-Sawayn', '1', 'online', NULL, 'not_approved', NULL, '2018-06-12 09:58:57', '2018-06-12 09:58:57'),
@@ -234,6 +267,26 @@ CREATE TABLE `contacts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_us`
+--
+
+CREATE TABLE `contact_us` (
+  `id` int(11) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `phone1` int(11) NOT NULL,
+  `phone2` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `contact_us`
+--
+
+INSERT INTO `contact_us` (`id`, `address`, `phone1`, `phone2`) VALUES
+(1, 'sakr quraish sheraton', 1114388555, 1118855223);
 
 -- --------------------------------------------------------
 
@@ -305,6 +358,26 @@ INSERT INTO `countries` (`id`, `name`, `currency`, `created_at`, `updated_at`) V
 (49, 'French Southern Territories', 'TJS', '2018-06-12 10:09:25', '2018-06-12 10:09:25'),
 (50, 'Niue', 'MXN', '2018-06-12 10:09:25', '2018-06-12 10:09:25'),
 (51, 'Falkland Islands (Malvinas)', 'DKK', '2018-06-12 10:09:25', '2018-06-12 10:09:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faqs`
+--
+
+CREATE TABLE `faqs` (
+  `id` int(11) NOT NULL,
+  `question` varchar(255) NOT NULL,
+  `answer` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `faqs`
+--
+
+INSERT INTO `faqs` (`id`, `question`, `answer`) VALUES
+(1, 'why are we good?', '<p>odod dsmds sjdnsjd sjkdamkdf abdul-wahab</p>'),
+(2, 'why are we bad?', 'hdhsd sdsdjs sudewudhe sndsndhns');
 
 -- --------------------------------------------------------
 
@@ -407,6 +480,13 @@ CREATE TABLE `site_infos` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `site_infos`
+--
+
+INSERT INTO `site_infos` (`id`, `site_name`, `logo`, `fivicon`, `key_words`, `description`, `author`, `term_docx`, `policy`, `website_used`, `payment_methods`, `footer_about`, `fb`, `tw`, `instagram`, `google`, `created_at`, `updated_at`) VALUES
+(1, 'جوزني', '1529419386.png', '1529419386.jpg', 'MARRY, TEST, DEMO', 'this is good site', 'RedaReda', '<p>أقسم بالله العظيم أني لم أدخل هذا الموقع الا بهدف الزواج الشرعي وفق كتاب الله و سنة رسوله , وليس لأي هدف آخر . وأعاهد الله وأعاهدكم على أن لا أضيع تعب الموقع , وأن لا أخدع الأعضاء , وأن أكون صادقا مع الله ثم مع نفسي , وأن ألتزم بشروط الموقع , و شروط المراسلة فيه , عسى ربي يكتب لي الخير في هذا المكان . والله خير الشاهدين</p>', 'good good greta', 'dvav  vCFSD DVDSV EDFVAVA PHP, Nodejs, python, c#, RubyOnRails, skype', 'csacavcdav', 'advadvdaxvda', 'www.facebook.com', 'www.twitter.com', 'www.instagram.com', 'www.google.com', '2018-06-19 12:50:02', '2018-06-19 12:43:06');
+
 -- --------------------------------------------------------
 
 --
@@ -440,6 +520,12 @@ CREATE TABLE `users` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `about_us`
+--
+ALTER TABLE `about_us`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `admins`
@@ -499,9 +585,21 @@ ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `contact_us`
+--
+ALTER TABLE `contact_us`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `countries`
 --
 ALTER TABLE `countries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `faqs`
+--
+ALTER TABLE `faqs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -557,6 +655,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `about_us`
+--
+ALTER TABLE `about_us`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
@@ -566,7 +670,7 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `admin_to_client_messages`
 --
 ALTER TABLE `admin_to_client_messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `blacklists`
@@ -593,10 +697,22 @@ ALTER TABLE `contacts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `contact_us`
+--
+ALTER TABLE `contact_us`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT for table `faqs`
+--
+ALTER TABLE `faqs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `friends`
@@ -620,7 +736,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `site_infos`
 --
 ALTER TABLE `site_infos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `success_stories`

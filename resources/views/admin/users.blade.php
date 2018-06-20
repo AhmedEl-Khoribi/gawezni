@@ -3,20 +3,26 @@
 @php
   $do = (isset($_GET['do'])) ? $_GET['do'] : 'blocked' ;
 @endphp
-<div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Data Table For Not Approved Users</h3>
               <center>
                 <a href="/admin/users?do=blocked"><button class="btn btn-link">Not-Approved/Blocked Users</button></a> || <a href="/admin/users?do=approved"><button class="btn btn-link">Approved Users</button></a>
               </center>
-            </div>
 @if($flash = session('message'))
+<div class="alert success">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <b>{{ $flash }}</b>
+</div>
+@endif
+@if($flash = session('deleted'))
 <div class="alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
     <b>{{ $flash }}</b>
 </div>
 @endif
  @if($do === 'blocked')
+ <div class="box">
+            <div class="box-header">
+  <h3 class="box-title">Data Table For Not Approved Users</h3>
+</div>
             <div class="box-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
@@ -25,7 +31,7 @@
                   <th>Username</th>
                   <th>Email</th>
                   <th>Approved / Not Approved</th>
-                  <th>Edit / Delete</th>
+                  <th>Edit / Delete / Message</th>
                   <th>View Details</th>
                 </tr>
                 </thead>
@@ -46,6 +52,9 @@
                     </a>
                     <a href="/admin/delete/{{ $userz->id }}" class="btn btn-app">
                          <i class="fa fa-close"></i> Delete
+                    </a>
+                    <a href="/admin/send_message/{{ $userz->id }}" class="btn btn-app">
+                      <i class="fa fa-envelope"></i> Message
                     </a>
                   </td>
                   <td>
@@ -95,6 +104,9 @@
                     </a>
                     <a href="/admin/delete/{{ $user->id }}" class="btn btn-app">
                          <i class="fa fa-close"></i> Delete
+                    </a>
+                    <a href="/admin/send_message/{{ $user->id }}" class="btn btn-app">
+                      <i class="fa fa-envelope"></i> Inbox
                     </a>
                   </td>
                   <td>
