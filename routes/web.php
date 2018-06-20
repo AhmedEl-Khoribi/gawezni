@@ -70,6 +70,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
   Route::post('/storeFaq', 'dashboard\OtherSiteInfoController@storeFAQ');
   Route::get('/delete_faq/{id}', 'dashboard\OtherSiteInfoController@destroyFaq');
 
+  //MailBox
+  Route::get('/mailbox', 'dashboard\MessageToClientsController@seeAll');
 
 
   //resets

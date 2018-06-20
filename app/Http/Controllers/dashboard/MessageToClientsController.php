@@ -47,4 +47,9 @@ class MessageToClientsController extends Controller
         return redirect('/admin/users');
     }
 
+    public function seeAll()
+    {
+        return view('admin.mailbox');
+    }
+
 }

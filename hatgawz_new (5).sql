@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2018 at 04:44 PM
+-- Generation Time: Jun 20, 2018 at 11:02 AM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -21,6 +21,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `hatgawz_new`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `about_us`
+--
+
+CREATE TABLE `about_us` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `desc` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `about_us`
+--
+
+INSERT INTO `about_us` (`id`, `title`, `desc`) VALUES
+(1, 'Gawzni SIte about us', '<p>dhcbdbc csadjcjkcd scdjckacds dhkfkds fkajfbdf sfsdjkggdf cdjadjcdjc djcdjcndac dcdjcaalkcdjc dkcjdncndciecd cadkcjcjdcnjac ajkcdcjkdscj d caljdkcndajc dj cadjc djc jdaadjc dlj cldjc djc d jc dljcjdc d ca cc dja d djdjj d cdjcjdlsdld cdjcjs</p>');
 
 -- --------------------------------------------------------
 
@@ -168,7 +187,7 @@ CREATE TABLE `clients` (
   `main_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `city_id` int(10) UNSIGNED NOT NULL,
   `other_person_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dob` date NOT NULL,
+  `dob` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `marraige_status` enum('first','second','third','fourth') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `social_status` enum('single','married','divorced','willow') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'single',
   `children_number` tinyint(4) DEFAULT NULL,
@@ -252,6 +271,26 @@ CREATE TABLE `contacts` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact_us`
+--
+
+CREATE TABLE `contact_us` (
+  `id` int(11) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `phone1` int(11) NOT NULL,
+  `phone2` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `contact_us`
+--
+
+INSERT INTO `contact_us` (`id`, `address`, `phone1`, `phone2`) VALUES
+(1, 'sakr quraish sheraton', 1114388555, 1118855223);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `countries`
 --
 
@@ -319,6 +358,26 @@ INSERT INTO `countries` (`id`, `name`, `currency`, `created_at`, `updated_at`) V
 (49, 'French Southern Territories', 'TJS', '2018-06-12 10:09:25', '2018-06-12 10:09:25'),
 (50, 'Niue', 'MXN', '2018-06-12 10:09:25', '2018-06-12 10:09:25'),
 (51, 'Falkland Islands (Malvinas)', 'DKK', '2018-06-12 10:09:25', '2018-06-12 10:09:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faqs`
+--
+
+CREATE TABLE `faqs` (
+  `id` int(11) NOT NULL,
+  `question` varchar(255) NOT NULL,
+  `answer` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `faqs`
+--
+
+INSERT INTO `faqs` (`id`, `question`, `answer`) VALUES
+(1, 'why are we good?', '<p>odod dsmds sjdnsjd sjkdamkdf abdul-wahab</p>'),
+(2, 'why are we bad?', 'hdhsd sdsdjs sudewudhe sndsndhns');
 
 -- --------------------------------------------------------
 
@@ -463,6 +522,12 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indexes for table `about_us`
+--
+ALTER TABLE `about_us`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `admins`
 --
 ALTER TABLE `admins`
@@ -520,9 +585,21 @@ ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `contact_us`
+--
+ALTER TABLE `contact_us`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `countries`
 --
 ALTER TABLE `countries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `faqs`
+--
+ALTER TABLE `faqs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -578,6 +655,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `about_us`
+--
+ALTER TABLE `about_us`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
@@ -614,10 +697,22 @@ ALTER TABLE `contacts`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `contact_us`
+--
+ALTER TABLE `contact_us`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `countries`
 --
 ALTER TABLE `countries`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT for table `faqs`
+--
+ALTER TABLE `faqs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `friends`
