@@ -27,6 +27,7 @@ Route::get('salary/{id}','FrontController@salary');
 Route::get('height/{id}','FrontController@height');
 Route::get('weight/{id}','FrontController@weight');
 Route::post('visitor/home','ClientAuth\LoginController@login');
+Route::get('/test','FrontController@pricesValues');
 
   Route::get('/admin/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
   Route::post('/admin/login', 'AdminAuth\LoginController@login');

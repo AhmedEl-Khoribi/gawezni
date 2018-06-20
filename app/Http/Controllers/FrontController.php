@@ -199,4 +199,16 @@ class FrontController extends Controller
             return response()->json(['error' => $error]);
         }
     }
+
+    public function pricesValues()
+    {
+
+        $message_count = \App\AdminToClientMessages::where('is_admin', 'no')->where('is_read', 'unseen')->count();     
+            header('Content-Type: text/event-stream');
+            header('Cache-Control: no-cache');
+
+            $time = date('r');
+            echo "data: {$message_count}\n\n";
+            flush();
+    }
 }
