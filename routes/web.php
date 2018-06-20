@@ -40,6 +40,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
   Route::get('/users', 'dashboard\ClientsController@index');
   Route::get('/approve/{id}', 'dashboard\ClientsController@approve');
   Route::get('/unapprove/{id}', 'dashboard\ClientsController@block');
+  Route::get('/upgrage/{id}', 'dashboard\ClientsController@upgrage');
   Route::get('/details/{id}', 'dashboard\ClientsController@show');
   Route::get('/edit_user/{id}', 'dashboard\ClientsController@edit');
   Route::patch('/updateUser/{id}', 'dashboard\ClientsController@update');
@@ -79,6 +80,9 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
 
   //MailBox
   Route::get('/mailbox', 'dashboard\MessageToClientsController@seeAll');
+  Route::get('/message', 'MailController@index');
+
+  Route::resource('Mail', 'MailController');
 
 
   //resets

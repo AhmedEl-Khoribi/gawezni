@@ -113,6 +113,12 @@ class ClientsController extends Controller
         session()->flash('message', 'User is blocked');
         return back();
     }
+    public function upgrage($id)
+    {
+        $block = Client::where('id', $id)->update(['member_ship' => 'premium']);
+        session()->flash('message', 'User is upgraded to premium membership');
+        return back();
+    }
     public function fakers()
     {
         $faker = \Faker\Factory::create();

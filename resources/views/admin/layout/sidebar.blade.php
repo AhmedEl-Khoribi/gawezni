@@ -43,6 +43,21 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
+            <span>Client Chats</span>
+            <span class="pull-right-container">
+              @php
+                  $count = App\Mail::distinct('sender_id')->count('sender_id');
+              @endphp
+              <span class="label label-primary pull-right">{{ $count }}</span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/admin/message"><i class="fa fa-circle-o"></i> All Clients Messages</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
             <span>Clients</span>
             <span class="pull-right-container">
               @php
