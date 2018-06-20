@@ -1,31 +1,20 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>هتجوز </title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Best Day Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+    <title>هتجوز </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Best Day Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-	<link href="/visitor/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link href="/visitor/css/bootstrap.css" rel="stylesheet" type="text/css" />
 
-	<link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<!--Custom-Theme-files-->
-	<link href="/visitor/css/style.css" rel="stylesheet" type="text/css" />
-	<script src="/visitor/js/jquery.min.js"> </script>
-	<!--/script-->
-	<script type="text/javascript" src="/visitor/js/move-top.js"></script>
-	<script type="text/javascript" src="/visitor/js/easing.js"></script>
-	<script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event){
-                event.preventDefault();
-                $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
-            });
-        });
-	</script>
+    <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Custom-Theme-files-->
+    <link href="/visitor/css/style.css" rel="stylesheet" type="text/css" />
+    <link  href="/extra/datepicker.css" rel="stylesheet">
 	<style>
 
 		.input-file-container {
@@ -330,7 +319,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--//footer-->
 
+<script
+        src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
+<!--/script-->
+<script src="https://fengyuanchen.github.io/js/common.js"></script>
+<script src="/extra/datepicker.js"></script>
 
+
+<script type="text/javascript" src="/visitor/js/move-top.js"></script>
+<script type="text/javascript" src="/visitor/js/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+        });
+
+        $("#dob").datepicker({
+            date: new Date(1998, 1, 14)
+        });
+    });
+</script>
 
 
 <script>

@@ -80,6 +80,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
   //MailBox
   Route::get('/mailbox', 'dashboard\MessageToClientsController@seeAll');
 
+  Route::get('/message', 'dashboard\MessageToClientsController@clientMessage');
+
 
   //resets
   Route::post('/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
