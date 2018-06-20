@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Hesto\MultiAuth\Traits\LogsoutGuard;
+use Illuminate\Support\Facades\Session;
+
 
 class LoginController extends Controller
 {
@@ -59,5 +61,49 @@ class LoginController extends Controller
     protected function guard()
     {
         return Auth::guard('client');
+    }
+
+    public function field()
+    {
+        if (filter_var(request()->username,FILTER_VALIDATE_EMAIL))
+        {
+            $this->validate(request(),[
+                'password' => 'required|min:6'
+            ]);
+            return 'email';
+        }
+        else if(is_numeric(request()->username))
+        {
+            $this->validate(request(),[
+                'username' => 'required',
+                'password' => 'required|min:6'
+            ]);
+            return 'phone';
+        }
+        else
+        {
+            $this->validate(request(),[
+                'username' => 'required|string',
+                'password' => 'required|min:6'
+            ]);
+            return 'username';
+        }
+    }
+    public function login()
+    {
+        if(Auth::guard('client')->attempt([$this->field() => request()->username,'password'=> request()->password]))
+        {
+            if(Auth::guard('client')->user()->approved == 'approved')
+            {
+                return redirect()->intended('/visitor/home');
+            }
+            Session::flash('error', 'حسابك لم يفعل بعد . انتظر حتي يت التفعيل');
+            return redirect()->back();
+        }
+        else
+        {
+            Session::flash('error', 'أسم المستخدم او رقم التليفون او اسم المستخدم و الرقم السري لا يطابق اي مستخدم');
+            return redirect()->back();
+        }
     }
 }
