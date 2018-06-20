@@ -13,13 +13,20 @@
 
 Route::get('/', 'FrontController@index');
 Route::get('index','FrontController@index');
+Route::get('register','FrontController@register');
 //Route::get('login','FrontController@lo');
 Route::get('maleRegister','FrontController@MaleRegisterForm');
 Route::post('maleRegister','FrontController@MaleRegister');
 Route::get('femaleRegister','FrontController@FemaleRegisterForm');
 Route::post('femaleRegister','FrontController@FemaleRegister');
 Route::get('city/{id}','FrontController@city');
-
+Route::get('email/{id}','FrontController@email');
+Route::get('username/{id}','FrontController@username');
+Route::get('phone/{id}','FrontController@phone');
+Route::get('salary/{id}','FrontController@salary');
+Route::get('height/{id}','FrontController@height');
+Route::get('weight/{id}','FrontController@weight');
+Route::post('visitor/home','ClientAuth\LoginController@login');
 
   Route::get('/admin/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
   Route::post('/admin/login', 'AdminAuth\LoginController@login');
@@ -85,7 +92,6 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
 });
 
 Route::group(['prefix' => 'client'], function () {
-  Route::get('/login', 'ClientAuth\LoginController@showLoginForm')->name('login');
   Route::post('/login', 'ClientAuth\LoginController@login');
   Route::get('/logout', 'ClientAuth\LoginController@logout')->name('logout');
 
