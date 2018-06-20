@@ -91,5 +91,112 @@
         </div>
 
     @endif
+    @if(isset($chats))
+        <div class="content-wrapper" style="margin-left:0">
+            <!-- Content Header (Page header) -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">All Client Messages</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Sender Name</th>
+                                            <th>Sends Message Count</th>
+                                            <th>recived Message Count</th>
+                                            <th>Sending At</th>
+                                            <th>view Client Chats</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                        $i=1;
+                                    ?>
+                                    @foreach($chats as $chat)
+                                        <tr>
+                                            <td>{{ $i++ }}</td>
+                                            <td>{{ \App\Client::find($chat->sender_id)->fname }}</td>
+                                            <td>{{ \App\Mail::where('sender_id',$chat->sender_id)->count() }}</td>
+                                            <td>{{ \App\Mail::where('receiver_id',$chat->sender_id)->count() }}</td>
+                                            <td>{{ \App\Client::find($chat->sender_id)->created_at }}</td>
+                                            <td><a href="mail/{{ $chat->sender_id }}/edit"> Show </a></td>
+                                        </tr>
+                                    @endforeach
+                                        <td></td>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+        </div>
 
+    @endif
+    @if(isset($clientChat))
+        <div class="content-wrapper" style="margin-left:0">
+            <!-- Content Header (Page header) -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">All Client Messages</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Sender Name</th>
+                                        <th>Reciver Name</th>
+                                        <th>Message Body</th>
+                                        <th>Message Status</th>
+                                        <th>Sending At</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    $i=1;
+                                    ?>
+                                    @foreach($clientChat as $chat)
+                                        <tr>
+                                            <td>{{ $i++ }}</td>
+                                            <td>{{ \App\Client::find($chat->sender_id)->fname }}</td>
+                                            <td>{{ \App\Client::find($chat->receiver_id)->fname }}</td>
+                                            <td>{{ $chat->body }}</td>
+                                            <td>{{ $chat->read }}</td>
+                                            <td>{{ $chat->created_at }}</td>
+                                        </tr>
+                                    @endforeach
+                                    <td></td>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+        </div>
+
+    @endif
 @endsection

@@ -83,6 +83,7 @@
                   <th>Username</th>
                   <th>Email</th>
                   <th>Approved / Not Approved</th>
+                  <th>Membership</th>
                   <th>Edits / Deletes</th>
                   <th>View Details</th>
                 </tr>
@@ -97,6 +98,15 @@
                     <a href="/admin/unapprove/{{ $user->id }}">
                       <button type="button" class="btn bg-purple btn-flat margin">Block User</button>
                     </a>
+                  </td>
+                  <td>
+                    @if($user->member_ship == 'free')
+                      <a href="/admin/upgrage/{{ $user->id }}">
+                        <button type="button" class="btn bg-purple btn-flat margin">upgrade</button>
+                      </a>
+                    @else
+                       Premium
+                    @endif
                   </td>
                   <td>
                     <a href="/admin/edit_user/{{ $user->id }}" class="btn btn-app">

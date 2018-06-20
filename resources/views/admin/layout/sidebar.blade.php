@@ -46,7 +46,7 @@
             <span>Client Chats</span>
             <span class="pull-right-container">
               @php
-                $count = App\Mail::count();
+                  $count = App\Mail::distinct('sender_id')->count('sender_id');
               @endphp
               <span class="label label-primary pull-right">{{ $count }}</span>
             </span>
