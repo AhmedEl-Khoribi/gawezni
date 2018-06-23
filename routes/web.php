@@ -28,6 +28,7 @@ Route::get('height/{id}','FrontController@height');
 Route::get('weight/{id}','FrontController@weight');
 Route::post('visitor/home','ClientAuth\LoginController@login');
 Route::get('/test','FrontController@pricesValues');
+Route::get('liked', 'FrontController@likes');
 
   Route::get('/admin/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
   Route::post('/admin/login', 'AdminAuth\LoginController@login');
@@ -103,7 +104,15 @@ Route::group(['prefix' => 'client'], function () {
   Route::get('/register', 'ClientAuth\RegisterController@showRegistrationForm')->name('register');
   Route::post('/register', 'ClientAuth\RegisterController@register');
 
-  Route::get('/edit/', 'UserController@edit');
+  Route::get('/edit', 'UserController@edit');
+  Route::patch('/update/{id}', 'UserController@update');
+
+  Route::get('/contact', 'dashboard\MessageToClientsController@showForm');
+  Route::post('/toAdmin', 'dashboard\MessageToClientsController@postContact');
+
+  Route::get('/faq', 'FrontController@FAQ');
+
+  Route::get('/nsay7', 'FrontController@advice');
 
   Route::post('/password/email', 'ClientAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
   Route::post('/password/reset', 'ClientAuth\ResetPasswordController@reset')->name('password.email');

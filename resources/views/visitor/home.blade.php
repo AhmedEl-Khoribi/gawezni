@@ -43,10 +43,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  <li><a href=""> <i class="fa fa-users"></i> {{ Auth::guard('client')->user()->fname . Auth::guard('client')->user()->lname }}</a></li>
 		  <li><a href="{{ url('/client/logout') }}"> Logout</a></li>
           <li><a href="#"><i class="fa fa-comment"></i>    الدردشه</a></li>
-          <li><a href="#"><i class="fa fa-envelope"></i>   الرسائل</a></li>
-          <li><a href="#"><i class="fa fa-heart"></i>     الاعجاب</a></li>
-          <li><a href="#"><i class="fa fa-search"></i>    البحث</a></li>
-          <li><a href="#"> <i class="fa fa-home"></i>     الصفحه الرئيسه</a></li>
+          <li><a href="/inbox"><i class="fa fa-envelope"></i>   الرسائل</a></li>
+          <li><a href="/liked"><i class="fa fa-heart"></i>     الاعجاب</a></li>
+        <li><a href="#"> <i class="fa fa-users"></i>    الزيارات</a></li>
+         <li><a href="/search"><i class="fa fa-search"></i>    البحث</a></li>
+         <li><a href="/"> <i class="fa fa-home"></i>     الصفحه الرئيسه</a></li>s
 
       </ul>
       
@@ -292,18 +293,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<div class="footer-center" style="direction: rtl;text-align: center" >
 					<div>
+						<a href="/client/contact">
 					<i class="fa fa-envelope"></i>
-					<p>رسائل الادارة</p>
+					<p>رسائل الادارة</p></a>
 				</div>
 
 				<div>
+					<a href="/client/nsay7">
 					<i class="fa fa-check"></i>
 					<p>نصائح واقتراحات</p>
+				</a>
 				</div>
 
 				<div>
+					<a href="/client/faq">
 					<i class="fa fa-question"></i>
 					<p>الاسئله المتداولة</p>
+				</a>
 				</div>
 
 			

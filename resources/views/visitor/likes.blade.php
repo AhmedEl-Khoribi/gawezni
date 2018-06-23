@@ -7,7 +7,7 @@
 <meta name="keywords" content="Best Day Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="/visitor/css/bootstrap.css" rel="stylesheet" type="text/css" />
 
 <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -16,19 +16,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <!--Custom-Theme-files-->
-	<link href="css/style.css" rel="stylesheet" type="text/css" />	
-	
+    <link href="/visitor/css/style.css" rel="stylesheet" type="text/css" />  
+    
 <script type="text/javascript">
-			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
-					event.preventDefault();
-					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
-				});
-			});
+            jQuery(document).ready(function($) {
+                $(".scroll").click(function(event){     
+                    event.preventDefault();
+                    $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+                });
+            });
 </script>
 </head>
 <body >
-	<!--start-home-->
+    <!--start-home-->
 
 
   <div class="navbar" style="direction: rtl; margin: 0 auto">
@@ -36,22 +36,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
  
       <ul class="nav navcollaps" style="direction: rtl;">
-       
-       
-        <li><a href="#"><i class="fa fa-comment"></i>    الدردشه</a></li>
-         
-        <li><a href="#"><i class="fa fa-envelope"></i>   الرسائل</a></li>
-          <li><a href="#"><i class="fa fa-heart"></i>     الاعجاب</a></li>
+
+          <li><a href=""> <i class="fa fa-users"></i> {{ Auth::guard('client')->user()->fname . Auth::guard('client')->user()->lname }}</a></li>
+          <li><a href="{{ url('/client/logout') }}"> Logout</a></li>
+          <li><a href="#"><i class="fa fa-comment"></i>    الدردشه</a></li>
+          <li><a href="/inbox"><i class="fa fa-envelope"></i>   الرسائل</a></li>
+          <li><a href="/liked"><i class="fa fa-heart"></i>     الاعجاب</a></li>
         <li><a href="#"> <i class="fa fa-users"></i>    الزيارات</a></li>
-         <li><a href="#"><i class="fa fa-search"></i>    البحث</a></li>
-         <li><a href="#"> <i class="fa fa-home"></i>     الصفحه الرئيسه</a></li>
+         <li><a href="/search"><i class="fa fa-search"></i>    البحث</a></li>
+         <li><a href="/"> <i class="fa fa-home"></i>     الصفحه الرئيسه</a></li>
       </ul>
       
          <div class="navbar-header">
       <button class="toggle"><span></span>
       <span></span>
       <span></span></button>
-      <a href="" class="navbar-brand" style="margin-top: -20px"><img src="images/logo-girl.png" width="120px"></a>
+      <a href="" class="navbar-brand" style="margin-top: -20px"><img src="/visitor/images/logo-girl.png" width="120px"></a>
     </div><!-- navbar-header -->
 
 
@@ -60,183 +60,130 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <br>
 <br>
-	<div class="container">
-	<h1 style="color: #f067ae">المعجبون بك</h1>
-		<div class="row">
-			<div class="col-sm-12">
-				
-				<table class="table table-striped" id="myTable" data-freezecolumns="2" style="direction: rtl">
-					<thead style="color: #f067ae">
-						<tr>
-							<th rowspan="2">الاسم</th>
-							<th rowspan="2"></th>
-							<th rowspan="2">العمر</th>
-							<th colspan="3">تاريخ الاعجاب</th>
-							<th colspan="3">الدولة</th>
-						</tr>
-						<tr>
-							<th>اليوم</th>
-							<th>الشهر</th>
-							<th>السنه</th>
-							<th>الدوله</th>
-							<th>المدينة</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>مستخدم1</td>
-							<td><img src="images/man.png" width="50px"></td>
-							<td>20</td>
-							<td>2</td>
-							<td>06</td>
-							<td>1990</td>
-							<td>مصر</td>
-							<td>القاهره</td>
-						</tr>
-						<tr>
-							<td>مستخدم1</td>
-							<td><img src="images/man.png" width="50px"></td>
-							<td>20</td>
-							<td>2</td>
-							<td>06</td>
-							<td>1990</td>
-							<td>مصر</td>
-							<td>القاهره</td>
-						</tr>
-						<tr>
-							<td>مستخدم1</td>
-							<td><img src="images/man.png" width="50px"></td>
-							<td>20</td>
-							<td>2</td>
-							<td>06</td>
-							<td>1990</td>
-							<td>مصر</td>
-							<td>القاهره</td>
-						</tr>
-						<tr>
-							<td>مستخدم1</td>
-							<td><img src="images/man.png" width="50px"></td>
-							<td>20</td>
-							<td>2</td>
-							<td>06</td>
-							<td>1990</td>
-							<td>مصر</td>
-							<td>القاهره</td>
-						</tr>
-						<tr>
-							<td>مستخدم1</td>
-							<td><img src="images/man.png" width="50px"></td>
-							<td>20</td>
-							<td>2</td>
-							<td>06</td>
-							<td>1990</td>
-							<td>مصر</td>
-							<td>القاهره</td>
-						</tr>
-					     <tr>
-							<td>مستخدم1</td>
-							<td><img src="images/man.png" width="50px"></td>
-							<td>20</td>
-							<td>2</td>
-							<td>06</td>
-							<td>1990</td>
-							<td>مصر</td>
-							<td>القاهره</td>
-						</tr>
-						<tr>
-							<td>مستخدم1</td>
-							<td><img src="images/man.png" width="50px"></td>
-							<td>20</td>
-							<td>2</td>
-							<td>06</td>
-							<td>1990</td>
-							<td>مصر</td>
-							<td>القاهره</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+    <h1 style="color: #f067ae">المعجبون بك</h1>
+        <div class="row">
+            <div class="col-sm-12">
+                
+                <table class="table table-striped" id="myTable" data-freezecolumns="2" style="direction: rtl">
+                    <thead style="color: #f067ae">
+                        <tr>
+                            <th rowspan="2">الاسم</th>
+                            <th rowspan="2"></th>
+                            <th colspan="3">تاريخ الاعجاب</th>
+                            <th colspan="3">الدولة</th>
+                        </tr>
+                        <tr>
+                            <th>اليوم</th>
+                            <th>الشهر</th>
+                            <th>السنه</th>
+                            <th>الدوله</th>
+                            <th>المدينة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($in_friends as $likers)
+                        <tr>
+                            <td>{{ $likers->username }}</td>
+                            <td><img src="/files/users/{{ $likers->image }}" width="50px"></td>
+                            @php
+                                $date = date_parse($likers->dob);
+                            @endphp
+                            <td>{{ $date['day'] }}</td>
+                            <td>{{ $date['month'] }}</td>
+                            <td>{{ $date['year'] }}</td>
+                            <td>{{ $likers->city->country->name }}</td>
+                            <td>{{ $likers->city->name }} </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
 
-	
-	<!--/footer-->
-	 
-	 
-		<footer class="footer-distributed">
+    
+    <!--/footer-->
+     
+     
+        <footer class="footer-distributed">
 
-			<div class="footer-left">
-					<p class="footer-company-about" style="direction: rtl;text-align: right" >
-					<span style="direction: rtl"> هتجوز </span>
-موقع تعارف وتواصل عريق يضع الوطن العربي والعالم بين يديك من خلال الدردشة والمراسلة والمحادثة والشات للقاء شريك العمر والارتباط بالنصف الآخر و فارس الأحلام. 				</p>
+            <div class="footer-left">
+                    <p class="footer-company-about" style="direction: rtl;text-align: right" >
+                    <span style="direction: rtl"> هتجوز </span>
+موقع تعارف وتواصل عريق يضع الوطن العربي والعالم بين يديك من خلال الدردشة والمراسلة والمحادثة والشات للقاء شريك العمر والارتباط بالنصف الآخر و فارس الأحلام.                 </p>
 
-				
+                
 
 
-				
-			</div>
+                
+            </div>
 
-			<div class="footer-center" style="direction: rtl;text-align: center" >
-					<div>
-					<i class="fa fa-envelope"></i>
-					<p>رسائل الادارة</p>
-				</div>
+            <div class="footer-center" style="direction: rtl;text-align: center" >
+                  <div>
+                <a href="/client/contact">
+                <i class="fa fa-envelope"></i>
+                <p>رسائل الادارة</p></a>
+            </div>
 
-				<div>
-					<i class="fa fa-check"></i>
-					<p>نصائح واقتراحات</p>
-				</div>
+            <div>
+                <a href="/client/nsay7">
+                <i class="fa fa-check"></i>
+                <p>نصائح واقتراحات</p>
+            </a>
+            </div>
 
-				<div>
-					<i class="fa fa-question"></i>
-					<p>الاسئله المتداولة</p>
-				</div>
+            <div>
+                <a href="/client/faq">
+                <i class="fa fa-question"></i>
+                <p>الاسئله المتداولة</p>
+            </a>
+            </div>
+            
 
-			
+            </div>
 
-			</div>
+            <div class="footer-right">
+<h3><img src="/visitor/images/logo-man.png"></h3>
 
-			<div class="footer-right">
-<h3><img src="images/logo-man.png"></h3>
+            </div>
 
-			</div>
+        </footer>
 
-		</footer>
-
-	 
-	 
-	 
-	 
-	 
-		 
+     
+     
+     
+     
+     
+         
 <footer>
-		<div class="copy">
-		    <p>&copy; 2018 All Rights Reserved | Design by <a href="http://gtsaw.com/">gtsaw</a> </p>
-		</div>
-		</footer>
-		<!--//footer-->
-			
+        <div class="copy">
+            <p>&copy; 2018 All Rights Reserved | Design by <a href="http://gtsaw.com/">gtsaw</a> </p>
+        </div>
+        </footer>
+        <!--//footer-->
+            
 
 
-<script src="js/jquery.min.js"> </script>
+<script src="/visitor/js/jquery.min.js"> </script>
 <!--/script-->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="/visitor/js/move-top.js"></script>
+<script type="text/javascript" src="/visitor/js/easing.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 <script src="//cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
 <script>
-	
-	$(".toggle").click(function(){
+    
+    $(".toggle").click(function(){
   $(".navcollaps").toggleClass("show");
 });
-	</script>
-	<script>
-	$(document).ready( function () {
+    </script>
+    <script>
+    $(document).ready( function () {
     $('#myTable').DataTable();
 } );
-	</script>
-	<script>
+    </script>
+    <script>
 /*
     project: tbltable v0.1a
     author: @smiling.smit
@@ -768,27 +715,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 $('#myTable').tbltable({
-	freezethead: true,
-	search: true,
-	sortable: true,
-	// editable: true,
-	editable: {
-		2: 'text',
-		3: 'number',
-		4: 'number',
-		5: 'number',
-		6: {
-			'm': 'Male',
-			'f': 'Female',
-		},
-		8: 'text',
-	},
+    freezethead: true,
+    search: true,
+    sortable: true,
+    // editable: true,
+    editable: {
+        2: 'text',
+        3: 'number',
+        4: 'number',
+        5: 'number',
+        6: {
+            'm': 'Male',
+            'f': 'Female',
+        },
+        8: 'text',
+    },
 });
-	</script>
-						
-								
-								
-								
+    </script>
+                        
+                                
+                                
+                                
 
 
 </body>
