@@ -59,9 +59,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $user_id = \Auth::guard('client')->user()->id();
+
+        $user = Client::where('id', $user_id)->first();
+
+        return view('visitor.edit', compact('user'));
     }
 
     /**
