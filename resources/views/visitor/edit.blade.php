@@ -146,11 +146,11 @@ input[type=checkbox].error:after {
 
  
       <ul class="nav navcollaps" style="direction: rtl;">
-       
-       
-        <li><a href="#"><i class="fa fa-comment"></i>    الدردشه</a></li>
-         
-        <li><a href="/inbox"><i class="fa fa-envelope"></i>   الرسائل</a></li>
+
+      <li><a href=""> <i class="fa fa-users"></i> {{ Auth::guard('client')->user()->fname . Auth::guard('client')->user()->lname }}</a></li>
+      <li><a href="{{ url('/client/logout') }}"> Logout</a></li>
+          <li><a href="#"><i class="fa fa-comment"></i>    الدردشه</a></li>
+          <li><a href="/inbox"><i class="fa fa-envelope"></i>   الرسائل</a></li>
           <li><a href="/liked"><i class="fa fa-heart"></i>     الاعجاب</a></li>
         <li><a href="#"> <i class="fa fa-users"></i>    الزيارات</a></li>
          <li><a href="/search"><i class="fa fa-search"></i>    البحث</a></li>
@@ -278,26 +278,31 @@ input[type=checkbox].error:after {
 
 			<div class="footer-center" style="direction: rtl;text-align: center" >
 					<div>
-					<i class="fa fa-envelope"></i>
-					<p>رسائل الادارة</p>
-				</div>
+            <a href="/client/contact">
+          <i class="fa fa-envelope"></i>
+          <p>رسائل الادارة</p></a>
+        </div>
 
-				<div>
-					<i class="fa fa-check"></i>
-					<p>نصائح واقتراحات</p>
-				</div>
+        <div>
+          <a href="/client/nsay7">
+          <i class="fa fa-check"></i>
+          <p>نصائح واقتراحات</p>
+        </a>
+        </div>
 
-				<div>
-					<i class="fa fa-question"></i>
-					<p>الاسئله المتداولة</p>
-				</div>
+        <div>
+          <a href="/client/faq">
+          <i class="fa fa-question"></i>
+          <p>الاسئله المتداولة</p>
+        </a>
+        </div>
 
 			
 
 			</div>
 
 			<div class="footer-right">
-<h3><img src="images/logo-man.png"></h3>
+<h3><img src="/visitor/images/logo-man.png"></h3>
 
 			</div>
 

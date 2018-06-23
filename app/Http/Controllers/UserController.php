@@ -99,7 +99,7 @@ class UserController extends Controller
         ]);
         Client::where('id', $id)->update($request->except(['_token', '_method', 'submit']));
         session()->flash('message', 'User Information Updated');
-        return redirect('/client/home/');
+        return redirect('/client/home');
     }
 
     /**

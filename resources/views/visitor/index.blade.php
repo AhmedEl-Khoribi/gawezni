@@ -286,18 +286,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<div class="footer-center" style="direction: rtl;text-align: center" >
 					<div>
+						<a href="/client/contact">
 					<i class="fa fa-envelope"></i>
-					<p>رسائل الادارة</p>
+					<p>رسائل الادارة</p></a>
 				</div>
 
 				<div>
+					<a href="/client/nsay7">
 					<i class="fa fa-check"></i>
 					<p>نصائح واقتراحات</p>
+				</a>
 				</div>
 
 				<div>
+					<a href="/client/faq">
 					<i class="fa fa-question"></i>
 					<p>الاسئله المتداولة</p>
+				</a>
 				</div>
 
 			
