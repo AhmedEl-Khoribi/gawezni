@@ -92,7 +92,7 @@
 
     @endif
     @if(isset($chats))
-        <div class="content-wrapper" style="margin-left:0">
+        <div class="content-wrapper" style="margin-left:0;">
             <!-- Content Header (Page header) -->
             <!-- Main content -->
             <section class="content">
@@ -146,57 +146,64 @@
 
     @endif
     @if(isset($clientChat))
-        <div class="content-wrapper" style="margin-left:0">
-            <!-- Content Header (Page header) -->
-            <!-- Main content -->
-            <section class="content">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="box">
-                            <div class="box-header">
-                                <h3 class="box-title">All Client Messages</h3>
-                            </div>
-                            <!-- /.box-header -->
-                            <div class="box-body">
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Sender Name</th>
-                                        <th>Reciver Name</th>
-                                        <th>Message Body</th>
-                                        <th>Message Status</th>
-                                        <th>Sending At</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                    $i=1;
-                                    ?>
-                                    @foreach($clientChat as $chat)
-                                        <tr>
-                                            <td>{{ $i++ }}</td>
-                                            <td>{{ \App\Client::find($chat->sender_id)->fname }}</td>
-                                            <td>{{ \App\Client::find($chat->receiver_id)->fname }}</td>
-                                            <td>{{ $chat->body }}</td>
-                                            <td>{{ $chat->read }}</td>
-                                            <td>{{ $chat->created_at }}</td>
-                                        </tr>
-                                    @endforeach
-                                    <td></td>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.box-body -->
+        <div class="col-md-12">
+                <!-- DIRECT CHAT -->
+                <div class="box box-warning direct-chat direct-chat-warning">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Chats To {{ \App\Client::find($clientChat[0]->sender_id)->fname . ' ' . \App\Client::find($clientChat[0]->sender_id)->lname }}</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts"
+                                    data-widget="chat-pane-toggle">
+                                <i class="fa fa-comments"></i></button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                            </button>
                         </div>
-                        <!-- /.box -->
                     </div>
-                    <!-- /.col -->
+                    <div class="box-body">
+                        <div class="direct-chat-messages">
+                            <?php
+                            $i=1;
+                            ?>
+                            @foreach($clientChat as $chat)
+                                    <?php
+                                        $var = explode('/',parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH ))[3];
+                                    ?>
+                                @if($chat->sender_id == $var)
+                                    <div class="direct-chat-msg">
+                                        <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name pull-right">{{ \App\Client::find($chat->sender_id)->fname . ' ' . \App\Client::find($chat->sender_id)->lname }}</span>
+                                            <span class="direct-chat-timestamp pull-left">{{ $chat->created_at }}</span>
+                                        </div>
+                                        <img class="direct-chat-img" src="{{ asset('files/users/'.\App\Client::find($chat->sender_id)->image ) }}" alt="message user image">
+                                        <div class="direct-chat-text">
+                                            {{ $chat->body }}
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="direct-chat-msg right">
+                                        <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name pull-right">{{ \App\Client::find($chat->sender_id)->fname . ' ' . \App\Client::find($chat->sender_id)->lname }}</span>
+                                            <span class="direct-chat-timestamp pull-left">{{ $chat->created_at }}</span>
+                                        </div>
+                                        <img class="direct-chat-img" src="{{ asset('files/users/'.\App\Client::find($chat->sender_id)->image ) }}" alt="message user image">
+                                        <div class="direct-chat-text">
+                                            {{ $chat->body }}
+                                        </div>
+                                    </div>
+                                @endif
+
+                            @endforeach
+                        </div>
+                        <!--/.direct-chat-messages-->
+
+                        <!-- /.direct-chat-pane -->
+                    </div>
                 </div>
-                <!-- /.row -->
-            </section>
-            <!-- /.content -->
-        </div>
+                <!--/.direct-chat -->
+            </div>
 
     @endif
 @endsection

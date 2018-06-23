@@ -83,7 +83,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
   Route::get('/mailbox', 'dashboard\MessageToClientsController@seeAll');
   Route::get('/message', 'MailController@index');
 
-  Route::resource('Mail', 'MailController');
+  Route::resource('mail', 'MailController');
 
 
   //resets
