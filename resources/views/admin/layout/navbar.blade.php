@@ -84,10 +84,10 @@
         <span class="sr-only">Toggle navigation</span>
       </a>
  @php
-  $messages = App\AdminToClientMessages::where('is_admin', 'no')->where('is_read', 'unseen')->get();
+    $messages = App\AdminToClientMessages::where('is_admin', 'no')->where('is_read', 'unseen')->get();
 
-  $message_count = App\AdminToClientMessages::where('is_admin', 'no')->where('is_read', 'unseen')->count();
-@endphp
+    $message_count = App\AdminToClientMessages::where('is_admin', 'no')->where('is_read', 'unseen')->count();
+  @endphp
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
