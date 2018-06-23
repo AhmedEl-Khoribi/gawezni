@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Client;
 
 class UserController extends Controller
 {
@@ -13,7 +14,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+       $user_id = \Auth::guard('client')->user()->id();
+
+       $user = Client::where('id', $user_id)->first();
+
+       return view('visitor.profile', compact('user'));
     }
 
     /**
@@ -45,7 +50,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -54,9 +59,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $user_id = \Auth::guard('client')->user()->id();
+
+        $usser = Client::where('id', $user_id)->first();
+
+        return view('visitor.edit', compact('usser'));
     }
 
     /**

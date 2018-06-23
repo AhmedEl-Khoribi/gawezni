@@ -103,7 +103,7 @@ Route::group(['prefix' => 'client'], function () {
   Route::get('/register', 'ClientAuth\RegisterController@showRegistrationForm')->name('register');
   Route::post('/register', 'ClientAuth\RegisterController@register');
 
-  Route::get('/edit/{id}', 'UserController@edit');
+  Route::get('/edit/', 'UserController@edit');
 
   Route::post('/password/email', 'ClientAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
   Route::post('/password/reset', 'ClientAuth\ResetPasswordController@reset')->name('password.email');
