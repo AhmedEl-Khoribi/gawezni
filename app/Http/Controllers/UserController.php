@@ -63,9 +63,9 @@ class UserController extends Controller
     {
         $user_id = \Auth::guard('client')->user()->id();
 
-        $user = Client::where('id', $user_id)->first();
+        $usser = Client::where('id', $user_id)->first();
 
-        return view('visitor.edit', compact('user'));
+        return view('visitor.edit', compact('usser'));
     }
 
     /**
