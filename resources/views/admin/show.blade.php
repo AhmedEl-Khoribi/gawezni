@@ -201,6 +201,20 @@
 
                         <!-- /.direct-chat-pane -->
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
                 <!--/.direct-chat -->
             </div>
