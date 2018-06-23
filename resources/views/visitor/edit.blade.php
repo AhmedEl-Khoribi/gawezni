@@ -150,104 +150,109 @@ input[type=checkbox].error:after {
        
         <li><a href="#"><i class="fa fa-comment"></i>    الدردشه</a></li>
          
-        <li><a href="#"><i class="fa fa-envelope"></i>   الرسائل</a></li>
-          <li><a href="#"><i class="fa fa-heart"></i>     الاعجاب</a></li>
+        <li><a href="/inbox"><i class="fa fa-envelope"></i>   الرسائل</a></li>
+          <li><a href="/liked"><i class="fa fa-heart"></i>     الاعجاب</a></li>
         <li><a href="#"> <i class="fa fa-users"></i>    الزيارات</a></li>
-         <li><a href="#"><i class="fa fa-search"></i>    البحث</a></li>
-         <li><a href="#"> <i class="fa fa-home"></i>     الصفحه الرئيسه</a></li>
+         <li><a href="/search"><i class="fa fa-search"></i>    البحث</a></li>
+         <li><a href="/"> <i class="fa fa-home"></i>     الصفحه الرئيسه</a></li>
       </ul>
       
          <div class="navbar-header">
       <button class="toggle"><span></span>
       <span></span>
       <span></span></button>
-      <a href="" class="navbar-brand" style="margin-top: -20px"><img src="images/logo-girl.png" width="120px"></a>
+      <a href="/" class="navbar-brand" style="margin-top: -20px"><img src="/visitor/images/logo-girl.png" width="120px"></a>
     </div><!-- navbar-header -->
 
 
   </div><!-- contaier -->
 </div><!-- navbar -->
-
-
 	<br>
 	<br>
-	
-	
-	
-	
-	
-	
 	<div class="form-container">
-  <form action="" method="post" id="form" novalidate="novalidate">
+  <form action="/client/update/{{ $usser->id }}" method="post" id="form" novalidate="novalidate">
+  {{ csrf_field() }}
+  <input type="hidden" name="_method" value="PATCH">
+
     <h2>تعديل البيانات </h2>
     <div class="form-group">
-      <label for="name">الاسم:</label>
-      <input class="form-control" type="text" name="name" minlength="2" required>
+      <label for="name">اسم المستخدم </label>
+      <input class="form-control" type="text" name="username" minlength="2" required value="{{ $usser->username }}">
     </div>
     <div class="form-group">
-      <label for="email"> كلمه المرور:</label>
-      <input class="form-control" type="password" name="email" required>
+      <label for="name">الاسم الاول</label>
+      <input class="form-control" type="text" name="fname" minlength="2" required value="{{ $usser->fname }}">
+    </div>
+    <div class="form-group">
+      <label for="name">الاسم الاخر:</label>
+      <input class="form-control" type="text" name="lname" minlength="2" required value="{{ $usser->lname }}">
+    </div>
+   <div class="form-group">
+    <label>Phone</label>
+          <input type="text" name="phone" class="form-control" value="{{ $usser->phone }}">
+   </div>
+    <div class="form-group">
+      <label for="email">البريد الشخصي</label>
+      <input class="form-control" type="email" name="email" required value="{{ $usser->email }}">
     </div>  
      <div class="form-group">
-      <label for="email">تاريخ الميلاد:</label>
-      <input class="form-control" type="date" name="email" required>
+      <label for="dob">تاريخ الميلاد:</label>
+      <input class="form-control" type="date" name="dob" required value="{{ $usser->dob }}">
     </div>   
     <div class="form-group">
-      <label for="age">العمر:</label>
-      <input class="form-control" type="text" name="age" minlength="2" required>
-    </div>
-    
-    <div class="form-group">
    	  <label for="age">الجنسيه:</label>
-    	  <select id="language" name="language">
-                                <option value="">اختر...</option>
-                                <option value="EN">مصر</option>
-                                <option value="FR">السعودية</option>
-                                <option value="SP">الكويت</option>
-                            </select>
+    	  <select class="form-control" id="country">
+          @foreach($countries as $country)
+          <option value="{{ $country->id }}" @if($usser->city->country->name === $country->name) {{ 'selected' }} @endif>{{  $country->name }}
+          </option>
+          @endforeach
+        </select>
     </div>
     <div class="form-group">
    	  <label for="age">الحاله الاجتماعية:</label>
-    	  <select id="d" name="language">
-                                <option value="">اختر...</option>
-                                <option value="EN">اعزب</option>
-                                <option value="FR">متزوج</option>
-                                <option value="SP">مطلق</option>
-                            </select>
+    	  <select class="form-control" name="social_status" id="social_single">
+          <option value="single" @if($usser->social_status === "single") {{ 'selected' }} @endif>Single</option>
+          <option value="married" @if($usser->social_status === "married") {{ 'selected' }} @endif>Married</option>
+          <option value="divorced" @if($usser->social_status === "divorced") {{ 'selected' }} @endif>Divorced</option>
+          <option value="willow" @if($usser->social_status === "willow") {{ 'selected' }} @endif>Willow</option>
+        </select>
     </div>
     <div class="form-group">
-      <label for="telephone">عدد الابناء :</label>
-      <input class="form-control" type="text" name="telephone" id="phone" required>
+      <label for="children">عدد الابناء :</label>
+      <input class="form-control" type="text" name="children_number" id="phone" required value="{{ $usser->children_number }}">
     </div>
     <div class="form-group">
-      <label for="email">المهنه:</label>
-      <input class="form-control" type="text" name="email" required>
+      <label for="job">المهنه:</label>
+      <input class="form-control" type="text" name="job" required value="{{ $usser->job }}">
     </div>     
     <div class="form-group">
-   	  <label for="age">لون العين :</label>
-    	  <select id="rr" name="language">
-                                <option value="">اختر...</option>
-                                <option value="EN">اسود</option>
-                                <option value="FR">بني</option>
-                                <option value="SP">ازرق</option>
-                            </select>
+   	  <label for="age">درجة التعليم: </label>
+    	  <select class="form-control" name="education">
+            <option value="medium_school" @if($usser->education === "medium_school") {{ 'selected' }} @endif>Medium School</option>
+            <option value="high_school" @if($usser->education === "high_school") {{ 'selected' }} @endif>High School</option>
+            <option value="university" @if($usser->education === "university") {{ 'selected' }} @endif>University</option>
+            <option value="PHD" @if($usser->education === "PHD") {{ 'selected' }} @endif>PHD</option>
+            <option value="self_study" @if($usser->education === "self_study") {{ 'selected' }} @endif>Self Study</option>
+          </select>
     </div>
     <div class="form-group">
-   	  <label for="age">لون الشعر :</label>
-    	  <select id="dd" name="language">
-                                <option value="">اختر...</option>
-                                <option value="EN">اسود</option>
-                                <option value="FR">بني</option>
-                                <option value="SP">ازرق</option>
-                            </select>
+   	  <label for="age">لون البشرة: </label>
+    	 <select class="form-control" name=" skin_color">
+        <option value="white" @if($usser->skin_color === "white") {{ 'selected' }} @endif>ابيض</option>
+        <option value="black" @if($usser->skin_color === "black") {{ 'selected' }} @endif>اسود</option>
+        <option value="dark_brown" @if($usser->skin_color === "dark_brown") {{ 'selected' }} @endif>قمجي</option>
+        <option value="brown" @if($usser->skin_color === "brown") {{ 'selected' }} @endif>بني</option>
+        <option value="7enty_dark" @if($usser->skin_color === "7enty_dark") {{ 'selected' }} @endif>حنطي غامق</option>
+        <option value="7enty_white" @if($usser->skin_color === "7enty_white") {{ 'selected' }} @endif>حنطي فاتح</option>
+      </select>
     </div>
        <div class="form-group">
       <label for="email">الطول:</label>
-      <input class="form-control" type="text" name="email" required>
+          <input type="text" name="height" class="form-control" value="{{ $usser->height }}">
     </div>  
        <div class="form-group">
       <label for="email">الوزن:</label>
-      <input class="form-control" type="text" name="email" required>
+          <input type="text" name="weight" class="form-control" value="{{ $usser->weight }}">
     </div>  
     <div class="form-group">
        <input class="submit form-control" type="submit" name="submit" value="تعديل">
