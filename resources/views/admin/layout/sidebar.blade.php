@@ -106,13 +106,21 @@
             <li><a href="/admin/contact_us"><i class="fa fa-circle-o"></i> Contact Us</a></li>
           </ul>
         </li>
+        @php
+        $seen_count = App\AdminToClientMessages::where('is_admin', 'no')->where('is_read', 'seen')->count();
+
+        $message_count = App\AdminToClientMessages::where('is_admin', 'no')->where('is_read', 'unseen')->count();
+
+        $total_count = App\AdminToClientMessages::count();
+
+        @endphp
         <li>
           <a href="/admin/mailbox">
             <i class="fa fa-envelope"></i> <span>Mailbox</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">12</small>
-              <small class="label pull-right bg-green">16</small>
-              <small class="label pull-right bg-red">5</small>
+              <small class="label pull-right bg-yellow">{{ $seen_count }}</small>
+              <small class="label pull-right bg-green">{{ $total_count }}</small>
+              <small class="label pull-right bg-red">{{ $message_count }}</small>
             </span>
           </a>
         </li>
