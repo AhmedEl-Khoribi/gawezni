@@ -21,7 +21,8 @@ class FrontController extends Controller
 
     public function index ()
     {
-        return view('visitor.index');
+        $top_6_users = Client::latest()->limit(6)->get();
+        return view('visitor.index', 'top_6_users');
     }
     public function register ()
     {

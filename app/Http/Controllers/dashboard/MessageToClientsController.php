@@ -49,7 +49,8 @@ class MessageToClientsController extends Controller
 
     public function seeAll()
     {
-        return view('admin.mailbox');
+        $all_messages = AdminToClientMessages::where('is_admin', 'no')->get();
+        return view('admin.mailbox', compact('all_messages'));
     }
 
 }
