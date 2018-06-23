@@ -57,14 +57,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="cont">
   
   <div class="form">
-    <form action="">
+    <form action="" method="post">
+		{{ csrf_field() }}
       <h1>تسجيل</h1>
-      <input type="text"
-             class="user"
-             placeholder="اسم المستخدم"/>
-      <input type="password" 
-             class="pass"
-             placeholder="كلمة المرور"/>
+      <input type="text" name="username" class="user" placeholder="اسم المستخدم"/>
+      <input type="password" name="password" class="pass" placeholder="كلمة المرور"/>
       <button  class="login">تسجيل الدخول</button>
       
        <button  class="login" style="background-color: #f067ae">ليس لديك حساب؟؟</button>

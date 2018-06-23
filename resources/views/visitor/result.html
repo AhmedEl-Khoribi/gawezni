@@ -1,0 +1,444 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>هتجوز </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Best Day Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+<link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="//cdn.datatables.net/1.10.18/css/jquery.dataTables.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<!--Custom-Theme-files-->
+	<link href="css/style.css" rel="stylesheet" type="text/css" />	
+	
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+				});
+			});
+</script>
+<style>
+	
+
+
+p {
+  margin: 5px 0;
+  font-weight: 300;
+}
+
+.strip-background {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  width: 100%;
+  height: 215px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+	direction: rtl;
+}
+
+.card {
+  background: #FFFFFF;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+}
+@media screen and (min-width: 768px) {
+  .card {
+    padding: 30px;
+  }
+}
+
+.search__container {
+  padding: 0 20px;
+  margin: 20px auto 0;
+  position: relative;
+  z-index: 1;
+}
+@media screen and (min-width: 768px) {
+  .search__container {
+    padding: 0;
+    width: 75%;
+    margin-top: 40px;
+  }
+}
+
+.search-item {
+  border-bottom: 1px solid #D3DCE6;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+	direction: rtl;
+}
+.search-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .search-item {
+    flex-wrap: no-wrap;
+  }
+}
+
+.search-item__content {
+  padding-top: 2px;
+  order: 5;
+  width: 100%;
+}
+@media screen and (min-width: 600px) {
+  .search-item__content {
+    width: auto;
+  }
+}
+
+.search-item__image {
+  order: 1;
+  width: 50px;
+  height:50px;
+  background-color: red;
+  border-radius: 8px;
+  margin-right: 15px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 600px) {
+  .search-item__image {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0;
+  }
+}
+
+.search-item__options {
+  order: 2;
+  margin-left: auto;
+	margin-right: 250px
+}
+@media screen and (min-width: 600px) {
+  .search-item__options {
+    order: 10;
+  }
+}
+
+.label {
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 10px;
+  padding: 5px;
+  vertical-align: middle;
+}
+
+.label--red {
+  background-color: #FF4747;
+  color: #FFFFFF;
+}
+
+.button {
+  display: inline-block;
+  text-transform: uppercase;
+  border: 0;
+  border-radius: 8px;
+  background-color: red;
+  font-size: 14px;
+  padding: 22px;
+}
+
+.button--small {
+  font-size: 10px;
+  padding: 10px;
+}
+
+.button--block {
+  display: block;
+  width: 100%;
+}
+
+.button--primary {
+  background-color: #72CB36;
+  color: #FFFFFF;
+}
+
+.button--outline {
+  border: 1px solid #D3DCE6;
+  color: #A1A1A1;
+  background-color: transparent;
+}
+
+.text--upcase {
+  text-transform: uppercase;
+}
+
+.text--small {
+  font-size: 14px;
+}
+
+.text--muted {
+  color: #8F8F8F;
+	direction: rtl;
+	text-align: center;
+	margin-right:250px
+}
+
+.text--medium {
+  font-weight: 400;
+	direction: rtl;
+	float: right;
+	padding-right: 20px
+}
+
+.text--center {
+  text-align: center;
+}
+
+.form {
+  width: 100%;
+}
+
+input[type="text"],
+input[type="date"] {
+  border: 0;
+  border-bottom: 1px solid #D3DCE6;
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin-bottom: 10px;
+  font-size: 17px;
+  padding: 10px 0 0 0;
+  transition: all 0.3s ease;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+input[type="text"]:focus,
+input[type="date"]:focus {
+  outline: 0;
+  border-color: #72A3FF;
+}
+
+.input__w-placeholder {
+  position: relative;
+}
+
+label {
+  position: absolute;
+  transition: all 0.1s ease;
+  z-index: 1;
+  left: 0;
+  top: 20px;
+  color: #A1A1A1;
+}
+.focus label, .static-label label {
+  top: 0;
+  font-size: 12px;
+}
+
+	</style>
+</head>
+<body >
+	<!--start-home-->
+
+
+  <div class="navbar" style="direction: rtl; margin: 0 auto">
+  <div class="contaier" style="margin-left:300px">
+
+ 
+      <ul class="nav navcollaps" style="direction: rtl;">
+       
+       
+        <li><a href="#"><i class="fa fa-comment"></i>    الدردشه</a></li>
+         
+        <li><a href="#"><i class="fa fa-envelope"></i>   الرسائل</a></li>
+          <li><a href="#"><i class="fa fa-heart"></i>     الاعجاب</a></li>
+        <li><a href="#"> <i class="fa fa-users"></i>    الزيارات</a></li>
+         <li><a href="#"><i class="fa fa-search"></i>    البحث</a></li>
+         <li><a href="#"> <i class="fa fa-home"></i>     الصفحه الرئيسه</a></li>
+      </ul>
+      
+         <div class="navbar-header">
+      <button class="toggle"><span></span>
+      <span></span>
+      <span></span></button>
+      <a href="" class="navbar-brand" style="margin-top: -20px"><img src="images/logo-girl.png" width="120px"></a>
+    </div><!-- navbar-header -->
+
+
+  </div><!-- contaier -->
+</div><!-- navbar -->
+
+<br>
+<br>
+	
+	
+	
+	<div class="strip-background"></div>
+
+<div class="search__container">
+  <ul class="card">  
+    <li class="search-item">
+      <div class="search-item__image" style="background-image: url(http://placehold.it/100x100);"></div>
+      <div class="search-item__content">
+        <p class="text--medium">
+          الاسم : احمد
+        </p>
+        <p class="text--small text--muted">العمر :30</p>
+        <p class="text--small text--muted">الدوله : مصر</p>
+      </div>
+      <div class="search-item__options">
+        <button class="button button--outline button--small">Add to PNB</button>
+      </div>
+    </li>
+
+    <li class="search-item">
+      <div class="search-item__image" style="background-image: url(http://placehold.it/100x100);"></div>
+      <div class="search-item__content">
+        <p class="text--medium">
+          الاسم : احمد
+        </p>
+        <p class="text--small text--muted">العمر :30</p>
+        <p class="text--small text--muted">الدوله : مصر</p>
+      </div>
+      <div class="search-item__options">
+        <button class="button button--outline button--small">Add to PNB</button>
+      </div>
+    </li>
+	  
+     <li class="search-item">
+      <div class="search-item__image" style="background-image: url(http://placehold.it/100x100);"></div>
+      <div class="search-item__content">
+        <p class="text--medium">
+          الاسم : احمد
+        </p>
+        <p class="text--small text--muted">العمر :30</p>
+        <p class="text--small text--muted">الدوله : مصر</p>
+      </div>
+      <div class="search-item__options">
+        <button class="button button--outline button--small">Add to PNB</button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+
+
+	
+	<!--/footer-->
+	 
+	 
+		<footer class="footer-distributed">
+
+			<div class="footer-left">
+					<p class="footer-company-about" style="direction: rtl;text-align: right" >
+					<span style="direction: rtl"> هتجوز </span>
+موقع تعارف وتواصل عريق يضع الوطن العربي والعالم بين يديك من خلال الدردشة والمراسلة والمحادثة والشات للقاء شريك العمر والارتباط بالنصف الآخر و فارس الأحلام. 				</p>
+
+				
+
+
+				
+			</div>
+
+			<div class="footer-center" style="direction: rtl;text-align: center" >
+					<div>
+					<i class="fa fa-envelope"></i>
+					<p>رسائل الادارة</p>
+				</div>
+
+				<div>
+					<i class="fa fa-check"></i>
+					<p>نصائح واقتراحات</p>
+				</div>
+
+				<div>
+					<i class="fa fa-question"></i>
+					<p>الاسئله المتداولة</p>
+				</div>
+
+			
+
+			</div>
+
+			<div class="footer-right">
+<h3><img src="images/logo-man.png"></h3>
+
+			</div>
+
+		</footer>
+
+	 
+	 
+	 
+	 
+	 
+		 
+<footer>
+		<div class="copy">
+		    <p>&copy; 2018 All Rights Reserved | Design by <a href="http://gtsaw.com/">gtsaw</a> </p>
+		</div>
+		</footer>
+		<!--//footer-->
+			
+
+
+<script src="js/jquery.min.js"> </script>
+<!--/script-->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+<script src="//cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+<script>
+	
+	$(".toggle").click(function(){
+  $(".navcollaps").toggleClass("show");
+});
+	</script>
+	<script>
+	$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+	</script>
+						
+								
+								
+		<script>
+	
+	
+var focusInput = ".input__w-placeholder input";
+
+$(focusInput).focus(function() {
+  $(this).parent().addClass("focus");
+});
+
+$(focusInput).blur(function() {
+  if( !this.value ) {
+    $(this).parent().removeClass("focus");
+  }
+});
+	</script>						
+
+
+</body>
+</html>
