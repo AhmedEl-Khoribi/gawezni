@@ -21,7 +21,8 @@ class FrontController extends Controller
 
     public function index ()
     {
-        return view('visitor.index');
+        $top_6_users = Client::latest()->limit(6)->get();
+        return view('visitor.index', 'top_6_users');
     }
     public function register ()
     {
@@ -198,5 +199,17 @@ class FrontController extends Controller
             $error = 'الطول لابد ان يكون رقم صحيح ولا يقبل حروف';
             return response()->json(['error' => $error]);
         }
+    }
+
+    public function pricesValues()
+    {
+
+        $message_count = \App\AdminToClientMessages::where('is_admin', 'no')->where('is_read', 'unseen')->count();     
+            header('Content-Type: text/event-stream');
+            header('Cache-Control: no-cache');
+
+            $time = date('r');
+            echo "data: {$message_count}\n\n";
+            flush();
     }
 }

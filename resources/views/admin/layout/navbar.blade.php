@@ -86,17 +86,17 @@
         <span class="sr-only">Toggle navigation</span>
       </a>
  @php
-  $messages = App\AdminToClientMessages::where('is_admin', 'no')->where('is_read', 'unseen')->get();
+    $messages = App\AdminToClientMessages::where('is_admin', 'no')->where('is_read', 'unseen')->get();
 
-  $message_count = App\AdminToClientMessages::where('is_admin', 'no')->where('is_read', 'unseen')->count();
-@endphp
+    $message_count = App\AdminToClientMessages::where('is_admin', 'no')->where('is_read', 'unseen')->count();
+  @endphp
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
-              <span class="label label-success">{{ $message_count }}</span>
+              <span class="label label-success"><span id="result"></span></span>
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have {{ $message_count }} messages</li>
@@ -125,6 +125,16 @@
               <li class="footer"><a href="#">See All Messages</a></li>
             </ul>
           </li>
+<script>
+if(typeof(EventSource) !== "undefined") {
+    var source = new EventSource("{{ action('FrontController@pricesValues') }}");
+    source.onmessage = function(event) {
+        document.getElementById("result").innerHTML = event.data;
+    };
+} else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
+}
+</script>
          {{--  <!-- Notifications: style can be found in dropdown.less -->
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
