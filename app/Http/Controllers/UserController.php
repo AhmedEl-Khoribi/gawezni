@@ -98,7 +98,7 @@ class UserController extends Controller
             'height'=>'required|numeric',
         ]);
         Client::where('id', $id)->update($request->except(['_token', '_method', 'submit']));
-        session()->flash('message', 'User Information Updated');
+        session()->flash('message', 'تم تعديل بيانات العميل');
         return redirect('/client/home');
     }
 
