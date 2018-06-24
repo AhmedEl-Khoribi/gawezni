@@ -82,7 +82,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   font-size:16px;
 }
 
-	</style>
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+.alert.success {background-color: #4CAF50;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.closebtn:hover {
+    color: black;
+}
+</style>
 </head>
 <body >
 	<!--start-home-->
@@ -90,19 +113,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
   <div class="navbar" style="direction: rtl; margin: 0 auto">
   <div class="contaier" style="margin-left:300px">
-
-      @if($flash = session('message'))
-          <div class="alert success">
-              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-              <b>{{ $flash }}</b>
-          </div>
-      @endif
-      @if($flash = session('deleted'))
-          <div class="alert">
-              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-              <b>{{ $flash }}</b>
-          </div>
-      @endif
 
       <ul class="nav navcollaps" style="direction: rtl;">
 
@@ -138,10 +148,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="profile-container">
   <div class="row">
   <div class="col-md-4">
-    <img src="https://image.ibb.co/jxGOma/image.jpg" class="img-responsive" width="100" height="100" />
+    <img src="{{ asset('files/users/' . $user->image ) }}" class="img-responsive" width="100" height="100" />
   </div>
 
   <div class="col-md-8 profile-info" >
+    @if($flash = session('message'))
+          <div class="alert success">
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+              <b>{{ $flash }}</b>
+          </div>
+      @endif
+      @if($flash = session('deleted'))
+          <div class="alert">
+              <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+              <b>{{ $flash }}</b>
+          </div>
+      @endif
     <h4 class="user-name">{{ $user->fname . ' ' . $user->lname }}</h4>
     <h5 class="user-mail"><i>{{ $user->geneder }} </i></h5>
     <h5 class="user-company">{{ \App\Country::find($user->city->country_id)->name . ' , ' . $user->city->name }}</h5>

@@ -29,6 +29,7 @@ Route::get('weight/{id}','FrontController@weight');
 Route::post('/client/home','ClientAuth\LoginController@login');
 Route::get('/test','FrontController@pricesValues');
 Route::get('liked', 'FrontController@likes');
+Route::get('blocked', 'FrontController@blocked');
 
   Route::get('/admin/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
   Route::post('/admin/login', 'AdminAuth\LoginController@login');
