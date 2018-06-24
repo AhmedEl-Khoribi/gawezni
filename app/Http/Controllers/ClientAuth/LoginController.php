@@ -95,7 +95,7 @@ class LoginController extends Controller
         {
             if(Auth::guard('client')->user()->approved == 'approved')
             {
-                return redirect()->intended('/visitor/home');
+                return redirect()->intended('/client/home');
             }
             Session::flash('error', 'حسابك لم يفعل بعد . انتظر حتي يت التفعيل');
             return redirect()->back();

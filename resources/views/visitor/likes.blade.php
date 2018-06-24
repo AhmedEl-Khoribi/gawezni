@@ -4,7 +4,7 @@
 <title>هتجوز </title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Best Day Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+<meta name="keywords" content="Best Day Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="/visitor/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -16,11 +16,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <!--Custom-Theme-files-->
-    <link href="/visitor/css/style.css" rel="stylesheet" type="text/css" />  
-    
+    <link href="/visitor/css/style.css" rel="stylesheet" type="text/css" />
+
 <script type="text/javascript">
             jQuery(document).ready(function($) {
-                $(".scroll").click(function(event){     
+                $(".scroll").click(function(event){
                     event.preventDefault();
                     $('html,body').animate({scrollTop:$(this.hash).offset().top},900);
                 });
@@ -31,32 +31,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--start-home-->
 
 
-  <div class="navbar" style="direction: rtl; margin: 0 auto">
-  <div class="contaier" style="margin-left:300px">
-
- 
-      <ul class="nav navcollaps" style="direction: rtl;">
-
-          <li><a href=""> <i class="fa fa-users"></i> {{ Auth::guard('client')->user()->fname . Auth::guard('client')->user()->lname }}</a></li>
-          <li><a href="{{ url('/client/logout') }}"> Logout</a></li>
-          <li><a href="#"><i class="fa fa-comment"></i>    الدردشه</a></li>
-          <li><a href="/inbox"><i class="fa fa-envelope"></i>   الرسائل</a></li>
-          <li><a href="/liked"><i class="fa fa-heart"></i>     الاعجاب</a></li>
-        <li><a href="#"> <i class="fa fa-users"></i>    الزيارات</a></li>
-         <li><a href="/search"><i class="fa fa-search"></i>    البحث</a></li>
-         <li><a href="/"> <i class="fa fa-home"></i>     الصفحه الرئيسه</a></li>
-      </ul>
-      
-         <div class="navbar-header">
-      <button class="toggle"><span></span>
-      <span></span>
-      <span></span></button>
-      <a href="" class="navbar-brand" style="margin-top: -20px"><img src="/visitor/images/logo-girl.png" width="120px"></a>
-    </div><!-- navbar-header -->
-
-
-  </div><!-- contaier -->
-</div><!-- navbar -->
+  @include('visitor.template.nav')
 
 <br>
 <br>
@@ -103,66 +78,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 
 
-    
-    <!--/footer-->
-     
-     
-        <footer class="footer-distributed">
 
-            <div class="footer-left">
-                    <p class="footer-company-about" style="direction: rtl;text-align: right" >
-                    <span style="direction: rtl"> هتجوز </span>
-موقع تعارف وتواصل عريق يضع الوطن العربي والعالم بين يديك من خلال الدردشة والمراسلة والمحادثة والشات للقاء شريك العمر والارتباط بالنصف الآخر و فارس الأحلام.                 </p>
-
-                
-
-
-                
-            </div>
-
-            <div class="footer-center" style="direction: rtl;text-align: center" >
-                  <div>
-                <a href="/client/contact">
-                <i class="fa fa-envelope"></i>
-                <p>رسائل الادارة</p></a>
-            </div>
-
-            <div>
-                <a href="/client/nsay7">
-                <i class="fa fa-check"></i>
-                <p>نصائح واقتراحات</p>
-            </a>
-            </div>
-
-            <div>
-                <a href="/client/faq">
-                <i class="fa fa-question"></i>
-                <p>الاسئله المتداولة</p>
-            </a>
-            </div>
-            
-
-            </div>
-
-            <div class="footer-right">
-<h3><img src="/visitor/images/logo-man.png"></h3>
-
-            </div>
-
-        </footer>
-
-     
-     
-     
-     
-     
-         
-<footer>
-        <div class="copy">
-            <p>&copy; 2018 All Rights Reserved | Design by <a href="http://gtsaw.com/">gtsaw</a> </p>
-        </div>
-        </footer>
-        <!--//footer-->
+    @include('visitor.template.footer')
             
 
 
