@@ -110,9 +110,9 @@ Route::group(['prefix' => 'client'], function () {
   Route::get('/contact', 'dashboard\MessageToClientsController@showForm');
   Route::post('/toAdmin', 'dashboard\MessageToClientsController@postContact');
 
-  Route::get('/faq', 'FrontController@FAQ');
+  Route::get('/faq', 'CityController@FAQ');
 
-  Route::get('/nsay7', 'FrontController@advice');
+  Route::get('/nsay7', 'CityController@advice');
 
   Route::post('/password/email', 'ClientAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
   Route::post('/password/reset', 'ClientAuth\ResetPasswordController@reset')->name('password.email');

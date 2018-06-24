@@ -214,19 +214,6 @@ class FrontController extends Controller
             flush();
     }
 
-    public function FAQ()
-    {
-        $faqs = DB::table('faqs')->get();
-
-        return view('visitor.faqs', compact('faqs'));
-    }
-
-    public function advice()
-    {
-        $advices = \App\SiteInfo::pluck('website_used');
-
-        return view('visitor.advice', compact('advices'));
-    }
 
     public function likes()
     {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\City;
 use App\Country;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CityController extends Controller
 {
@@ -97,5 +98,19 @@ class CityController extends Controller
     {
         City::find($id)->delete();
         return redirect()->back()->with('message','success delete this city');
+    }
+
+    public function FAQ()
+    {
+        $faqs = DB::table('faqs')->get();
+
+        return view('visitor.faqs', compact('faqs'));
+    }
+
+    public function advice()
+    {
+        $advices = \App\SiteInfo::pluck('website_used');
+
+        return view('visitor.advice', compact('advices'));
     }
 }

@@ -114,7 +114,7 @@
                       </div>
                       <h4>
                         {{ $client->username }}
-                        <small><i class="fa fa-clock-o"></i> {{  $client->created_at->diffForHumans() }} </small>
+                        <small><i class="fa fa-clock-o"></i> {{  $message->created_at->diffForHumans() }} </small>
                       </h4>
                       <p><?= $message->body ?></p>
                     </a>
