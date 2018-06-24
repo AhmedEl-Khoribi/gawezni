@@ -15,15 +15,16 @@ use DB;
 
 class FrontController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('client.guest')->except(['likes', 'blocked']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('client.guest')->except(['likes', 'blocked']);
+    // }
 
     public function index ()
     {
-        $top_6_users = Client::latest()->limit(6)->get();
-        return view('visitor.index', compact('top_6_users'));
+        $top_6_users = Client::latest()->limit(12)->get();
+        $countries = Country::all();
+        return view('visitor.index', compact('top_6_users', 'countries'));
     }
     public function register ()
     {

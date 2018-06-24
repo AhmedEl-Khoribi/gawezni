@@ -15,15 +15,18 @@
         @endif
 
         <ul class="nav navcollaps" style="direction: rtl;">
-
+  <ul class="nav navcollaps" style="direction: rtl;">
+        @if(Auth::guard('client')->check())
+          <li><a href="/client/home"> <i class="fa fa-users"></i> {{ Auth::guard('client')->user()->fname . Auth::guard('client')->user()->lname }}</a></li>
             <li><a href="{{ url('/client/logout') }}"><i class="fa fa-comment"></i>الخروج</a></li>
+      @endif
             <li><a href="#"><i class="fa fa-comment"></i>    الدردشه</a></li>
 
             <li><a href="#"><i class="fa fa-envelope"></i>   الرسائل</a></li>
             <li><a href="{{ url('liked') }}"><i class="fa fa-heart"></i>     الاعجاب</a></li>
             <li><a href="#"> <i class="fa fa-users"></i>    الزيارات</a></li>
             <li><a href="#"><i class="fa fa-search"></i>    البحث</a></li>
-            <li><a href="{{ url('client/home') }}"> <i class="fa fa-home"></i>     الصفحه الرئيسه</a></li>
+            <li><a href="/"> <i class="fa fa-home"></i>     الصفحه الرئيسه</a></li>
         </ul>
 
         <div class="navbar-header">
