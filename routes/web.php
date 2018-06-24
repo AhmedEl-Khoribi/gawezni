@@ -26,7 +26,7 @@ Route::get('phone/{id}','FrontController@phone');
 Route::get('salary/{id}','FrontController@salary');
 Route::get('height/{id}','FrontController@height');
 Route::get('weight/{id}','FrontController@weight');
-Route::post('visitor/home','ClientAuth\LoginController@login');
+Route::post('/client/home','ClientAuth\LoginController@login');
 Route::get('/test','FrontController@pricesValues');
 Route::get('liked', 'FrontController@likes');
 
@@ -98,7 +98,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>'admin'], function () {
 });
 
 Route::group(['prefix' => 'client'], function () {
-  Route::post('/login', 'ClientAuth\LoginController@login');
+  // Route::post('/login', 'ClientAuth\LoginController@login');
   Route::get('/logout', 'ClientAuth\LoginController@logout')->name('logout');
 
   Route::get('/register', 'ClientAuth\RegisterController@showRegistrationForm')->name('register');
