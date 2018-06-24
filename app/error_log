@@ -1,0 +1,2 @@
+[24-Jun-2018 02:08:17 America/Chicago] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home1/gtsaw1/hatgwez.com/app/SiteInfo.php on line 7
+[24-Jun-2018 02:08:17 America/Chicago] PHP Fatal error:  Class 'Illuminate\Database\Eloquent\Model' not found in /home1/gtsaw1/hatgwez.com/app/City.php on line 9
