@@ -17,7 +17,7 @@ class FrontController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('client.guest')->except(['likes']);
+        $this->middleware('client.guest')->except(['likes', 'blocked']);
     }
 
     public function index ()
@@ -222,5 +222,14 @@ class FrontController extends Controller
         $in_friends = \App\Client::find($user_id)->friends()->select('*')->get();
 
         return view('visitor.likes', compact('in_friends'));
+    }
+
+    public function blocked()
+    {
+        $user_id = \Auth::guard('client')->user()->id;
+
+        $in_friend = \App\Client::find($user_id)->blacklisted()->select('*')->get();
+
+        return view('visitor.blocked', compact('in_friend'));
     }
 }
