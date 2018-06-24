@@ -17,7 +17,7 @@ class FrontController extends Controller
 {
     public function __construct()
     {
-
+        $this->middleware('client.guest')->except(['likes']);
     }
 
     public function index ()

@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="cont">
 
   <div class="form">
-    <form action="{{ url('/client/login') }}" method="post">
+    <form action="{{ url('/client/home') }}" method="post">
       <h1>تسجيل الدخول</h1>
       	{{ csrf_field() }}
 		<input type="text" name="username" class="user" placeholder="اسم المستخدم او البريد الالكتروني او رقم التليفون"/>
