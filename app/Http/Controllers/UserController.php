@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Client;
+use App\Country;
 
 class UserController extends Controller
 {
@@ -11,9 +13,19 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('client');
+    }
+
     public function index()
     {
-        //
+       $user_id = Auth::guard('client')->user()->id;
+
+       $user = Client::where('id', $user_id)->first();
+
+       return view('visitor.profile', compact('user'));
     }
 
     /**
@@ -45,7 +57,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -54,9 +66,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $user_id = \Auth::guard('client')->user()->id;
+
+        $usser = Client::where('id', $user_id)->first();
+
+        $countries = Country::all();
+
+        return view('visitor.edit', compact('usser', 'countries'));
     }
 
     /**
@@ -68,7 +86,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate(request(),[
+            'username'=>'required|unique:clients,username,'.$id,
+            'email'=>'required|email|unique:clients,email,'.$id,
+            'phone'=>'required',
+            'job'=>'required',
+            'fname'=>'required',
+            'lname'=>'required',
+            'dob'=>'required',
+            'weight'=>'required|numeric',
+            'height'=>'required|numeric',
+        ]);
+        Client::where('id', $id)->update($request->except(['_token', '_method', 'submit']));
+        session()->flash('message', 'User Information Updated');
+        return redirect('/client/home');
     }
 
     /**

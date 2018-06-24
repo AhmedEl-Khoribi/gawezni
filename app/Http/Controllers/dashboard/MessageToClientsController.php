@@ -53,4 +53,36 @@ class MessageToClientsController extends Controller
         return view('admin.mailbox', compact('all_messages'));
     }
 
+    public function showForm()
+    {
+        return view('visitor.contact_us');
+    }
+
+    public function postContact(Request $request)
+    {
+        $this->validate(request(),[
+            'message_to_admin' => 'required'
+        ]);
+
+        $body = $request->message_to_admin;
+
+        $sender_id = \Auth::guard('client')->user()->id;
+        
+        $done = new AdminToClientMessages;
+
+        $done->receiver_id = 1;
+
+        $done->sender_id = $sender_id;
+
+        $done->body = $body;
+
+        $done->is_admin = 'no';
+
+        $done->save();
+
+        session()->flash('message', 'تم ارسال الرسالة الى الادارة');
+
+        return redirect('/client/home');
+    }
+
 }

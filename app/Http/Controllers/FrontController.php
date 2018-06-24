@@ -11,6 +11,7 @@ use App\Country;
 use App\City;
 use App\Client;
 use Illuminate\Support\Facades\Hash;
+use DB;
 
 class FrontController extends Controller
 {
@@ -22,7 +23,7 @@ class FrontController extends Controller
     public function index ()
     {
         $top_6_users = Client::latest()->limit(6)->get();
-        return view('visitor.index', 'top_6_users');
+        return view('visitor.index', compact('top_6_users'));
     }
     public function register ()
     {
@@ -211,5 +212,28 @@ class FrontController extends Controller
             $time = date('r');
             echo "data: {$message_count}\n\n";
             flush();
+    }
+
+    public function FAQ()
+    {
+        $faqs = DB::table('faqs')->get();
+
+        return view('visitor.faqs', compact('faqs'));
+    }
+
+    public function advice()
+    {
+        $advices = \App\SiteInfo::pluck('website_used');
+
+        return view('visitor.advice', compact('advices'));
+    }
+
+    public function likes()
+    {
+        $user_id = \Auth::guard('client')->user()->id;
+
+        $in_friends = \App\Client::find($user_id)->friends()->select('*')->get();
+
+        return view('visitor.likes', compact('in_friends'));
     }
 }
