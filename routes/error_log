@@ -1,0 +1,4 @@
+[24-Jun-2018 02:08:22 America/Chicago] PHP Fatal error:  Uncaught Error: Class 'Route' not found in /home1/gtsaw1/hatgwez.com/routes/client.php:3
+Stack trace:
+#0 {main}
+  thrown in /home1/gtsaw1/hatgwez.com/routes/client.php on line 3
