@@ -4,7 +4,7 @@
 <title>هتجوز </title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Best Day Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+<meta name="keywords" content="Best Day Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="/visitor/css/bootstrap.css" rel="stylesheet" type="text/css" />
@@ -19,7 +19,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body >
 	<!--start-home-->
-	
+
 <div class="container-fluid" style="background-image: url('/visitor/images/banner.jpg'); background-size: cover">
 	<div id="home" class="header">
 		<div class="header-top">
@@ -27,7 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="logo">
 					<a href="{{ url('/') }}"><img src="/visitor/images/logo-girl.png"></a>
 				</div>
-			
+
             <!-- script-for-menu -->
 				<script>
 				$( "span.menu" ).click(function() {
@@ -42,18 +42,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
        </div>
 
 <div class="cont">
-  
+
   <div class="form">
     <form action="{{ url('/client/login') }}" method="post">
-      <h1>تسجيل</h1>
+      <h1>تسجيل الدخول</h1>
       	{{ csrf_field() }}
-		<input type="text" name="username" {{ old('username') }} class="user" placeholder="اسم المستخدم او البريد الالكتروني او رقم التليفون"/>
+		<input type="text" name="username" class="user" placeholder="اسم المستخدم او البريد الالكتروني او رقم التليفون"/>
 		@if ($errors->has('username'))
 			<span class="help-block">
                 <strong>{{ $errors->first('username') }}</strong>
             </span>
 		@endif
-        <input type="password" name="password" class="pass" placeholder="كلمة المرور"/>
+        <input type="password" name="password"  class="pass" placeholder="كلمة المرور"/>
 		@if ($errors->has('password'))
 			<span class="help-block">
                 <strong>{{ $errors->first('password') }}</strong>
@@ -64,15 +64,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <strong>{{ $flash }}</strong>
             </span>
 		@endif
+		<div class="form-group">
+			<label for="remember"><input type="checkbox" name="remember" id="remember" value="1">Remember Me تذكرني لاحقا</label>
+		</div>
       <button  class="login">تسجيل الدخول</button>
     </form>
 	  <a href="/register">
 		  <button  class="login" style="background-color: #f067ae">ليس لديك حساب؟؟</button>
 	  </a>
+	  <a href="/client/password/reset">
+		  <button  class="login" style="background-color: #f067ae">هل نسيت كلمه السر</button>
+	  </a>
   </div>
-  
-  
-  
+
+
 </div>
 	</div>
 	<div class="container-fluid numbers" style="background-color: #27aae1">
@@ -87,52 +92,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- gallery-->
-	
-	
+
+
 	<div class="container gallery-section">
 		<div class="row">
-			<div class="col-lg-2 col-md-2 col-xs-4 col-sm-4" style="border: 1px solid #27aae1">
-				<a href="#">
-					<img src="/visitor/images/man.png" >
-					
-				</a>
-			</div>
-			<div class="col-lg-2 col-md-2 col-xs-4 col-sm-4" style="border: 1px solid #f067ea">
-				<a href="#">
-					<img src="/visitor/images/women.png" >
-					
-				</a>
-			</div>
-			<div class="col-lg-2 col-md-2 col-xs-4 col-sm-4" style="border: 1px solid #27aae1">
-				<a href="#">
-					<img src="/visitor/images/man.png" class="male">
-					
-				</a>
-			</div>
-			<div class="col-lg-2 col-md-2 col-xs-4 col-sm-4" style="border: 1px solid #f067ea">
-				<a href="#">
-					<img src="/visitor/images/women.png">
-					
-				</a>
-			</div>
-			<div class="col-lg-2 col-md-2 col-xs-4 col-sm-4" style="border: 1px solid #27aae1">
-				<a href="#">
-					<img src="/visitor/images/man.png">
-					
-				</a>
-			</div>
-			<div class="col-lg-2 col-md-2 col-xs-4 col-sm-4" style="border: 1px solid #f067ea">
-				<a href="#">
-					<img src="/visitor/images/women.png">
-					
-				</a>
-			</div>
-			
+
+			@foreach($top_6_users as $user)
+				<div class="col-lg-2 col-md-2 col-xs-4 col-sm-4" style="border: 1px solid #27aae1; padding:0">
+					<a href="#">
+						<img src="{{ asset('files/users/' . $user->image ) }}" style="width: 100%;height: 110px;" >
+
+					</a>
+				</div>
+			@endforeach
+
 		</div>
 	</div>
 	<!-- gallery-->
-	
-	
+
+
 	<div class="clearfix"></div>
 	<div class="container about">
 		<div class="row" style="direction: rtl">
@@ -148,7 +126,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!-- about-->
 	<div class="clearfix"></div>
-	
+
 	<!-- room -->
 	<div class="container" style="direction: rtl">
 		<div class="row">
@@ -181,41 +159,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</a>
 				</div>
 				<div class="col-sm-12 col-xs-12 chat2">
-				
+
 					<div class="col-sm-6 col-xs-6">
 					<img src="/visitor/images/mobile.png" width="300px" style="padding-top: 10px">
 				</div>
 				<div class="col-sm-6 col-xs-6">
 					<h4>انضم إلينا من أي جهاز محمول</h4>
 				</div>
-					
-					
+
+
 				</div>
-				
+
 			</div>
-			
+
 			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 search">
 					<h3> <i class="fa fa-search"></i>  البحث السريع  </h3>
 					<hr>
-				
+
 				<h5>   النوع:  <span style="padding-right: 30px"> <input type="radio" name="radio" style="padding: 50px" > انثي   <input type="radio" name="radio"> ذكر </span></h5>
       <hr>
-        
+
          <h5 style="text-align: right;padding-right:130px">
-          
+
            <input type="checkbox" name="checkbox" >
-            <i></i>بيانات مع الصور 
+            <i></i>بيانات مع الصور
             </h5>
-            
+
          <h5  style="text-align: right;padding-right: 130px">
           <br>
            <input type="checkbox" name="checkbox" >
-            <i></i>  المتواجدون الآن في الموقع  
+            <i></i>  المتواجدون الآن في الموقع
             </h5>
             <br>
             <h5  style="text-align: right;padding-right: 130px">
            <input type="checkbox" name="checkbox" >
-            <i></i>     زوار الموقع اليوم  
+            <i></i>     زوار الموقع اليوم
             </h5>
           <hr>
             <form >
@@ -226,10 +204,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <option>السعوديه</option>
         <option>الكويت</option>
       </select>
-     
+
     </div>
   </form>
-         
+
              <form>
     <div class="form-group">
       <select class="form-control">
@@ -238,39 +216,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <option>30</option>
         <option>30</option>
       </select>
-     
+
     </div>
   </form>
-         
+
          <hr>
-    
-        
+
+
 <button  class="login"> <i class="fa fa-search"></i> ابحث </button>
-				
+
 			</div>
 		</div>
 	</div>
-	
-	
-	
+
+
+
 	<!-- room -->
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<!--/footer-->
-	 
-	 
+
+
 		<footer class="footer-distributed">
 
 			<div class="footer-left">
@@ -278,34 +256,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<span style="direction: rtl"> هتجوز </span>
 موقع تعارف وتواصل عريق يضع الوطن العربي والعالم بين يديك من خلال الدردشة والمراسلة والمحادثة والشات للقاء شريك العمر والارتباط بالنصف الآخر و فارس الأحلام. 				</p>
 
-				
 
 
-				
+
+
 			</div>
 
 			<div class="footer-center" style="direction: rtl;text-align: center" >
 					<div>
-						<a href="/client/contact">
 					<i class="fa fa-envelope"></i>
-					<p>رسائل الادارة</p></a>
+					<p>رسائل الادارة</p>
 				</div>
 
 				<div>
-					<a href="/client/nsay7">
 					<i class="fa fa-check"></i>
 					<p>نصائح واقتراحات</p>
-				</a>
 				</div>
 
 				<div>
-					<a href="/client/faq">
 					<i class="fa fa-question"></i>
 					<p>الاسئله المتداولة</p>
-				</a>
 				</div>
 
-			
+
 
 			</div>
 
@@ -316,12 +289,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		</footer>
 
-	 
-	 
-	 
-	 
-	 
-		 
+
+
+
+
+
+
 <footer>
 		<div class="copy">
 		    <p>&copy; 2015 Best Day. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p>
@@ -343,7 +316,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
 	</script>
-								
+
 				<script>
 	$(".tabs a").on("click", function(){
   var id = $(this).attr("id");
@@ -379,10 +352,10 @@ function animationHover(element, animation){
   );
 };
 animationHover("input[type=button]", "shake");
-	</script>				
-								
-								
-								
+	</script>
+
+
+
 
 
 </body>
