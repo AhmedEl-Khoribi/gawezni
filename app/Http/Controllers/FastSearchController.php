@@ -14,8 +14,7 @@ class FastSearchController extends Controller
          'gender'=> 'in:male,female' 
         ]);
 
-    	$is_male = (isset($request->male)) ? 'yes' : "no";
-    	$is_female = (isset($request->female)) ? 'yes' : "no";
+    	$is_gender = (isset($request->gender)) ? $request->gender : null;
     	$is_with_images = (isset($request->with_images)) ? 'yes' : "no";
     	$is_online = (isset($request->is_online)) ? 'yes' : "no";
     	$country_id = (isset($request->country)) ? $request->country : null;
@@ -32,22 +31,22 @@ class FastSearchController extends Controller
     		$with_images = 'yes';
     		//to
 
-	    	if($is_female == 'yes' && $is_online == 'yes' && !is_null($country_id) && !is_null($date_of_birth))
+	    	if(!is_null($is_gender) && $is_online == 'yes' && !is_null($country_id) && !is_null($date_of_birth))
 	    	{
-	    		$results = Client::where('gender', 'female')->orWhere('online', 'online')->orWhere('dob', 'LIKE', '%'.$date_of_birth.'%')->get();
+	    		$results = Client::where('gender', 'female')->Where('online', 'online')->Where('dob', 'LIKE', '%'.$date_of_birth.'%')->get();
 	    		
 	    		return view('visitor.searchResults', compact('with_images', 'results', 'array_of_clients'));
-	    	}elseif($is_male == 'yes' && $is_online == 'yes' && !is_null($country_id) && !is_null($date_of_birth)) 
+	    	}elseif(!is_null($is_gender) && $is_online == 'yes' && !is_null($country_id) && !is_null($date_of_birth)) 
 	    	{
-	    		$results = Client::where('gender', 'male')->orWhere('online', 'online')->orWhere('dob', 'LIKE', '%'.$date_of_birth.'%')->get();
+	    		$results = Client::where('gender', 'male')->Where('online', 'online')->Where('dob', 'LIKE', '%'.$date_of_birth.'%')->get();
 	    		
 	    		return view('visitor.searchResults', compact('with_images', 'results', 'array_of_clients'));
-	    	}elseif($is_male == 'yes')
+	    	}elseif($is_gender== 'male')
 	    	{
 	    		$results = Client::where('gender', 'male')->get();
 	    		
 	    		return view('visitor.searchResults', compact('with_images', 'results'));
-	    	}elseif($is_female== 'yes')
+	    	}elseif($is_gender== 'female')
 	    	{
 	    		$results = Client::where('gender', 'female')->get();
 	    		
@@ -59,22 +58,22 @@ class FastSearchController extends Controller
 	    }else{
 	    	$with_images == 'no';
 
-	    	if($is_female == 'yes' && $is_online == 'yes' && !is_null($country_id) && !is_null($date_of_birth))
+	    	if(!is_null($is_gender) && $is_online == 'yes' && !is_null($country_id) && !is_null($date_of_birth))
 	    	{
-	    		$results = Client::where('gender', 'female')->orWhere('online', 'online')->orWhere('dob', 'LIKE', '%'.$date_of_birth.'%')->get();
+	    		$results = Client::where('gender', 'female')->Where('online', 'online')->Where('dob', 'LIKE', '%'.$date_of_birth.'%')->get();
 	    		
 	    		return view('visitor.searchResults', compact('with_images', 'results', 'array_of_clients'));
-	    	}elseif($is_male == 'yes' && $is_online == 'yes' && !is_null($country_id) && !is_null($date_of_birth)) 
+	    	}elseif(!is_null($is_gender) && $is_online == 'yes' && !is_null($country_id) && !is_null($date_of_birth)) 
 	    	{
-	    		$results = Client::where('gender', 'male')->orWhere('online', 'online')->orWhere('dob', 'LIKE', '%'.$date_of_birth.'%')->get();
+	    		$results = Client::where('gender', 'male')->Where('online', 'online')->Where('dob', 'LIKE', '%'.$date_of_birth.'%')->get();
 	    		
 	    		return view('visitor.searchResults', compact('with_images', 'results', 'array_of_clients'));
-	    	}elseif($is_male == 'yes')
+	    	}elseif($is_gender== 'male')
 	    	{
 	    		$results = Client::where('gender', 'male')->get();
 	    		
 	    		return view('visitor.searchResults', compact('with_images', 'results'));
-	    	}elseif($is_female== 'yes')
+	    	}elseif($is_gender== 'female')
 	    	{
 	    		$results = Client::where('gender', 'female')->get();
 	    		

@@ -57,6 +57,25 @@
 
 </script>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+    $(".friend_request").on('click',function(){
+      var id = $(this).next().val();
+      $.ajax({
+      type: "GET",
+      url: '/client/like/' + id,
+      data: {},
+      success: function( msg ) {
+        $('#pending'+id).html('<span id="pending"><i class="fa fa-clock-o" style="color: red"></i>'+msg.message+'</span>');
+
+      },
+      dataType: "json"
+  });
+
+    });
+       });
+</script>
+
 
 
 
