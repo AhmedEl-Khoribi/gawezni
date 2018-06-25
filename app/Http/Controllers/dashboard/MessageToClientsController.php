@@ -8,6 +8,7 @@ use App\Client;
 use App\AdminToClientMessages;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class MessageToClientsController extends Controller
@@ -91,6 +92,7 @@ class MessageToClientsController extends Controller
         public function message()
     {
         $id = Auth::guard('client')->user()->id;
+//        $in_friends = \App\Client::find($id)->mails()->select('*')->distinct('receiver_id')->get();
         $ClientChats = \App\Mail::where('sender_id',$id)->orWhere('receiver_id',$id)->get();
         return view('visitor.message',compact('ClientChats'));
     }

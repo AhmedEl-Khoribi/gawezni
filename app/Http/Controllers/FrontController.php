@@ -22,9 +22,21 @@ class FrontController extends Controller
 
     public function index ()
     {
-        $top_6_users = Client::latest()->limit(12)->get();
+        $gender = \Auth::guard('client')->user()->gender;
+        if($gender === 'male')
+        {
+            $top_6_users = Client::where('gender','female')->latest()->limit(12)->get();
+        }
+        else if($gender === 'male')
+        {
+            $top_6_users = Client::where('gender','male')->latest()->limit(12)->get();
+        }
+        else
+        {
+            $top_6_users = Client::latest()->limit(12)->get();
+        }
         $countries = Country::all();
-        return view('visitor.index', compact('top_6_users', 'countries'));
+        return view('visitor.index', compact(['top_6_users', 'countries']));
     }
     public function register ()
     {
@@ -232,5 +244,10 @@ class FrontController extends Controller
         $in_friend = \App\Client::find($user_id)->blacklisted()->select('*')->get();
 
         return view('visitor.blocked', compact('in_friend'));
+    }
+    public function profile ($id)
+    {
+        $user = Client::find($id);
+        return view('visitor.profile',compact('user'));
     }
 }

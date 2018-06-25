@@ -113,6 +113,7 @@ Route::group(['prefix' => 'client'], function () {
   Route::post('/toAdmin', 'dashboard\MessageToClientsController@postContact');
 
   Route::get('/faq', 'CityController@FAQ');
+  Route::get('/profile/{id}', 'FrontController@profile');
 
  Route::get('/message', 'dashboard\MessageToClientsController@message');
   Route::post('/message', 'dashboard\MessageToClientsController@sendMessageBetweenClients');

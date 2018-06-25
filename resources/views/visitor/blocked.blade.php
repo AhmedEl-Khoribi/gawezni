@@ -35,7 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <br>
 <br>
     <div class="container">
-    <h1 style="color: #f067ae">المعجبون بك</h1>
+    <h1 style="color: #f067ae">قائمه الحظر</h1>
         <div class="row">
             <div class="col-sm-12">
                 @php
