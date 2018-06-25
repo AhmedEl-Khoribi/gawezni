@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\ClientAuth;
 
+use App\Client;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
@@ -52,7 +53,12 @@ class LoginController extends Controller
     {
         return view('client.auth.login');
     }
-
+    public function logout ()
+    {
+        Client::where('id',Auth::guard('client')->user()->id)->update(['online'=> 'offline']);
+        Auth::guard('client')->logout();
+        return redirect('/');
+    }
     /**
      * Get the guard to be used during authentication.
      *
@@ -95,6 +101,7 @@ class LoginController extends Controller
         {
             if(Auth::guard('client')->user()->approved == 'approved')
             {
+                Client::where('id',Auth::guard('client')->user()->id)->update(['online'=> 'online']);
                 return redirect()->intended('/client/home');
             }
             Session::flash('error', 'حسابك لم يفعل بعد . انتظر حتي يت التفعيل');

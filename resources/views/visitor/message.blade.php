@@ -7,7 +7,7 @@
 <meta name="keywords" content="Best Day Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="/visitor/css/bootstrap.css" rel="stylesheet" type="text/css" />
 
 <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -16,7 +16,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <!--Custom-Theme-files-->
-	<link href="css/style.css" rel="stylesheet" type="text/css" />	
+	<link href="/visitor/css/style.css" rel="stylesheet" type="text/css" />
 	
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
@@ -36,32 +36,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--start-home-->
 
 
-  <div class="navbar" style="direction: rtl; margin: 0 auto">
-  <div class="contaier" style="margin-left:300px">
-
- 
-      <ul class="nav navcollaps" style="direction: rtl;">
-       
-       
-        <li><a href="#"><i class="fa fa-comment"></i>    الدردشه</a></li>
-         
-        <li><a href="#"><i class="fa fa-envelope"></i>   الرسائل</a></li>
-          <li><a href="#"><i class="fa fa-heart"></i>     الاعجاب</a></li>
-        <li><a href="#"> <i class="fa fa-users"></i>    الزيارات</a></li>
-         <li><a href="#"><i class="fa fa-search"></i>    البحث</a></li>
-         <li><a href="#"> <i class="fa fa-home"></i>     الصفحه الرئيسه</a></li>
-      </ul>
-      
-         <div class="navbar-header">
-      <button class="toggle"><span></span>
-      <span></span>
-      <span></span></button>
-      <a href="" class="navbar-brand" style="margin-top: -20px"><img src="images/logo-girl.png" width="120px"></a>
-    </div><!-- navbar-header -->
-
-
-  </div><!-- contaier -->
-</div><!-- navbar -->
+@include('visitor.template.nav')
 
 <br>
 <br>
@@ -80,50 +55,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						
 					</thead>
 					<tbody>
-					
+
+					@foreach($ClientChats as $chat)
 						<tr>
-							<td><a href="chat.html">مستخدم11</a></td>
-							<td>.........</td>
+							<td><a href="{{ url('/client/message/'. $chat->id) }}">{{ \App\Client::find($chat->sender_id)->fname . ' ' . \App\Client::find($chat->sender_id)->lname }}</a></td>
+							<td>{{ $chat->body }}</td>
 							<td>20/6/2018</td>
-							
 						</tr>
-						
-						<tr>
-							<td><a href="chat.html">مستخدم11</a></td>
-							<td>...........</td>
-							<td>20/6/2018</td>
-							
-						</tr>
-						<tr>
-							<td><a href="chat.html">مستخدم11</a></td>
-							<td>.............</td>
-							<td>20/6/2018</td>
-							
-						</tr>
-						<tr>
-							<td><a href="chat.html">مستخدم11</a></td>
-							<td>.........</td>
-							<td>20/6/2018</td>
-							
-						</tr>
-						<tr>
-							<td><a href="chat.html">مستخدم11</a></td>
-							<td>.............</td>
-							<td>20/6/2018</td>
-							
-						</tr>
-					     <tr>
-							<td><a href="chat.html">مستخدم11</a></td>
-							<td>..........</td>
-							<td>20/6/2018</td>
-							
-						</tr>
-						<tr>
-							<td><a href="chat.html">مستخدم11</a></td>
-							<td>...............</td>
-							<td>20/6/2018</td>
-							
-						</tr>
+					@endforeach
 					</tbody>
 				</table>
 			</div>
@@ -131,69 +70,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 
 
-	
-	<!--/footer-->
-	 
-	 
-		<footer class="footer-distributed">
+	@include('visitor.template.footer')
 
-			<div class="footer-left">
-					<p class="footer-company-about" style="direction: rtl;text-align: right" >
-					<span style="direction: rtl"> هتجوز </span>
-موقع تعارف وتواصل عريق يضع الوطن العربي والعالم بين يديك من خلال الدردشة والمراسلة والمحادثة والشات للقاء شريك العمر والارتباط بالنصف الآخر و فارس الأحلام. 				</p>
-
-				
-
-
-				
-			</div>
-
-			<div class="footer-center" style="direction: rtl;text-align: center" >
-					<div>
-					<i class="fa fa-envelope"></i>
-					<p>رسائل الادارة</p>
-				</div>
-
-				<div>
-					<i class="fa fa-check"></i>
-					<p>نصائح واقتراحات</p>
-				</div>
-
-				<div>
-					<i class="fa fa-question"></i>
-					<p>الاسئله المتداولة</p>
-				</div>
-
-			
-
-			</div>
-
-			<div class="footer-right">
-<h3><img src="images/logo-man.png"></h3>
-
-			</div>
-
-		</footer>
-
-	 
-	 
-	 
-	 
-	 
-		 
-<footer>
-		<div class="copy">
-		    <p>&copy; 2018 All Rights Reserved | Design by <a href="http://gtsaw.com/">gtsaw</a> </p>
-		</div>
-		</footer>
 		<!--//footer-->
 			
 
 
-<script src="js/jquery.min.js"> </script>
+<script src="/visitor/js/jquery.min.js"> </script>
 <!--/script-->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="/visitor/js/move-top.js"></script>
+<script type="text/javascript" src="/visitor/js/easing.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 <script src="//cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
 <script>

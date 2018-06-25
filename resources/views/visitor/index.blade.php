@@ -7,6 +7,7 @@
 <meta name="keywords" content="Best Day Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="https://fonts.googleapis.com/earlyaccess/droidarabickufi.css" rel="stylesheet">
 <link href="/visitor/css/bootstrap.css" rel="stylesheet" type="text/css" />
 
 <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
@@ -19,7 +20,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body >
 	<!--start-home-->
+@if(Auth::guard('client')->check())
+    @include('visitor.template.nav')
 
+	@else
 <div class="container-fluid" style="background-image: url('/visitor/images/banner.jpg'); background-size: cover">
 	<div id="home" class="header">
 		<div class="header-top">
@@ -80,6 +84,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </div>
 	</div>
+	@endif
+@if($flash = session('message'))
+  <div class="alert success">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <b>{{ $flash }}</b>
+  </div>
+@endif
+@if($flash = session('deleted'))
+  <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <b>{{ $flash }}</b>
+  </div>
+@endif
 	<div class="container-fluid numbers" style="background-color: #27aae1">
 		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 			<h3><i class="fa fa-check"></i> نجاحات متتالية منذ 2010 </h3>
@@ -171,139 +188,65 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 
 			</div>
-
 			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 search">
+				<form method="get" action="/search">
+
 					<h3> <i class="fa fa-search"></i>  البحث السريع  </h3>
 					<hr>
 
-				<h5>   النوع:  <span style="padding-right: 30px"> <input type="radio" name="radio" style="padding: 50px" > انثي   <input type="radio" name="radio"> ذكر </span></h5>
+				<h5>   النوع:  <span style="padding-right: 30px"> <input type="radio" name="female" style="padding: 50px" > انثي   <input type="radio" name="gender" value="male"> ذكر 
+<input type="radio" name="gender" value="female">
+				</span></h5>
       <hr>
 
          <h5 style="text-align: right;padding-right:130px">
 
-           <input type="checkbox" name="checkbox" >
+           <input type="checkbox" name="with_images" value="with_images">
             <i></i>بيانات مع الصور
             </h5>
 
          <h5  style="text-align: right;padding-right: 130px">
           <br>
-           <input type="checkbox" name="checkbox" >
+           <input type="checkbox" name="is_online" value="is_online">
             <i></i>  المتواجدون الآن في الموقع
             </h5>
             <br>
-            <h5  style="text-align: right;padding-right: 130px">
-           <input type="checkbox" name="checkbox" >
-            <i></i>     زوار الموقع اليوم
-            </h5>
           <hr>
-            <form >
     <div class="form-group">
-      <select class="form-control" >
-        <option>اختر الدولة ... </option>
-        <option>مصر</option>
-        <option>السعوديه</option>
-        <option>الكويت</option>
+      <select class="form-control" id="country"  name="country">
+      	<option selected disabled>اختر الدولة ... </option>
+      	@foreach($countries as $country)
+        <option value="{{ $country->id }}">{{  $country->name }}</option>
+        @endforeach
       </select>
-
     </div>
-  </form>
+    <div class="form-group" style="display: none;" id="cityDisplay">
+      <select class="form-control" id="city" name="city_id">
+        <option disabled selected>اختر االمدينة ... </option>
+      </select>
+    </div>
 
-             <form>
     <div class="form-group">
-      <select class="form-control">
-        <option>اختر العمر ... </option>
-        <option>20</option>
-        <option>30</option>
-        <option>30</option>
+      <select class="form-control" name="age">
+        <option disabled selected>مواليد...</option>
+        @for($i=1955; $i<=2000; $i++)
+        <option value="{{ $i }}">{{ $i }}</option>
+        @endfor
       </select>
-
     </div>
-  </form>
-
-         <hr>
-
-
-<button  class="login"> <i class="fa fa-search"></i> ابحث </button>
+<button  type="submit" class="login"> <i class="fa fa-search"></i> ابحث </button>
+			  </form>
 
 			</div>
 		</div>
 	</div>
+        @include('visitor.template.footer')     
 
-
-
-	<!-- room -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<!--/footer-->
-
-
-		<footer class="footer-distributed">
-
-			<div class="footer-left">
-					<p class="footer-company-about" style="direction: rtl;text-align: right" >
-					<span style="direction: rtl"> هتجوز </span>
-موقع تعارف وتواصل عريق يضع الوطن العربي والعالم بين يديك من خلال الدردشة والمراسلة والمحادثة والشات للقاء شريك العمر والارتباط بالنصف الآخر و فارس الأحلام. 				</p>
-
-
-
-
-
-			</div>
-
-			<div class="footer-center" style="direction: rtl;text-align: center" >
-					<div>
-					<i class="fa fa-envelope"></i>
-					<p>رسائل الادارة</p>
-				</div>
-
-				<div>
-					<i class="fa fa-check"></i>
-					<p>نصائح واقتراحات</p>
-				</div>
-
-				<div>
-					<i class="fa fa-question"></i>
-					<p>الاسئله المتداولة</p>
-				</div>
-
-
-
-			</div>
-
-			<div class="footer-right">
-<h3><img src="/visitor/images/logo-man.png"></h3>
-
-			</div>
-
-		</footer>
-
-
-
-
-
-
-
-<footer>
-		<div class="copy">
-		    <p>&copy; 2015 Best Day. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> </p>
-		</div>
-		</footer>
-		<!--//footer-->
 
 
 	<script src="/visitor/js/jquery.min.js"> </script>
+	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+
 	<!--/script-->
 	<script type="text/javascript" src="/visitor/js/move-top.js"></script>
 	<script type="text/javascript" src="/visitor/js/easing.js"></script>
@@ -316,7 +259,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
 	</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#country").on('change',function(){
+      var id = $("#country").val();
+      $.ajax({
+      type: "GET",
+      url: '/client/country/city/' + id,
+      data: {},
+      success: function( msg ) {
+        $("#cityDisplay").fadeIn(1000);
+        $("#city").html(msg.message);
 
+      },
+      dataType: "json"
+  });
+
+    });
+
+    $("#gender").on('change',function(){
+       var gender = $("#gender").val();
+       if(gender === 'female')
+       {
+        $("#marraige12").fadeOut(1000);
+       }
+       else
+       {
+        $("#marraige12").fadeIn(1000);
+       }
+    });
+
+      $("#social_single").on('change',function(){
+       var social_single = $("#social_single").val();
+       if(social_single === 'single')
+       {
+        $("#numberChild").fadeOut(1000);
+        $("#marraige12").fadeOut(1000);
+       }
+       else
+       {
+         $("#numberChild").fadeIn(1000);
+        $("#marraige12").fadeIn(1000);
+       }
+    });
+
+
+
+
+  });
+
+
+</script>
 				<script>
 	$(".tabs a").on("click", function(){
   var id = $(this).attr("id");

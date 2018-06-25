@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -287,8 +286,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
   </div>
   <br/>
   <div class="row">
-   
-    <div class="todo-links"><a  href="/client/edit"><i class="fa fa-pencil-square-o" style="color: black"></i>  تعديل البيانات</a>
+  <div class="todo-links"><a  href="/blocked"><i class="fa fa-square" style="color: black"></i>قائمة الحظر </a></div>
+
+  <div class="todo-links"><a  href="/client/edit"><i class="fa fa-pencil-square-o" style="color: black"></i>  تعديل البيانات</a>
     </div>
 
      <div class="todo-links"><a href="{{ url('/client/logout') }}"><i class="fa fa-frown-o" style="color: black"></i> تسجيل الخروج</a>

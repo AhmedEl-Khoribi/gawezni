@@ -7,7 +7,7 @@
 <meta name="keywords" content="Best Day Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+<link href="/visitor/css/bootstrap.css" rel="stylesheet" type="text/css" />
 
 <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -16,7 +16,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <!--Custom-Theme-files-->
-	<link href="css/style.css" rel="stylesheet" type="text/css" />	
+	<link href="/visitor/css/style.css" rel="stylesheet" type="text/css" />
 	
 <script type="text/javascript">
 			jQuery(document).ready(function($) {
@@ -412,32 +412,7 @@ li.predictive .message:before {
 	<!--start-home-->
 
 
-  <div class="navbar" style="direction: rtl; margin: 0 auto">
-  <div class="contaier" style="margin-left:300px">
-
- 
-      <ul class="nav navcollaps" style="direction: rtl;">
-       
-       
-        <li><a href="#"><i class="fa fa-comment"></i>    الدردشه</a></li>
-         
-        <li><a href="#"><i class="fa fa-envelope"></i>   الرسائل</a></li>
-          <li><a href="#"><i class="fa fa-heart"></i>     الاعجاب</a></li>
-        <li><a href="#"> <i class="fa fa-users"></i>    الزيارات</a></li>
-         <li><a href="#"><i class="fa fa-search"></i>    البحث</a></li>
-         <li><a href="#"> <i class="fa fa-home"></i>     الصفحه الرئيسه</a></li>
-      </ul>
-      
-         <div class="navbar-header">
-      <button class="toggle"><span></span>
-      <span></span>
-      <span></span></button>
-      <a href="" class="navbar-brand" style="margin-top: -20px"><img src="images/logo-girl.png" width="120px"></a>
-    </div><!-- navbar-header -->
-
-
-  </div><!-- contaier -->
-</div><!-- navbar -->
+  @include('visitor.template.nav')
 
 
 	<br>
@@ -452,39 +427,25 @@ li.predictive .message:before {
   <div id="chat">
     <div id="app-wrapper">
       <div id="app">
-        <div id="menu-wrapper" class="pane">
-          <ul id="menu">
-            <li class="active"><a href="chat.html"><i class="fa fa-weixin" aria-hidden="true"></i><span>الدردشه</span></a></li>
-            <li><a href="profile.html"><i class="fa fa-user-circle-o" aria-hidden="true"></i><span>الصفحة الرئيسه</span></a></li>
-          </ul>
-          <div class="toggle-menu"><a href="#"><i class="fa fa-angle-double-left" aria-hidden="true"></i><span></span></a></div>
-        </div>
-
         <div id="content-wrapper">
           <div id="side" class="pane">
             <div id="user-infos">
-              <div class="gravatar" style="background-image: url(&quot;https://secure.gravatar.com/avatar/6ae2903ae85c3dfc76586d9750dee348?s=80&amp;r=g&amp;d=identicon&quot;);"></div>
-              <div class="username">اسم المستخدم 
+              <div class="gravatar" style="background-image: url({{ asset('files/users/'. Auth::guard('client')->user()->image ) }});"></div>
+              <div class="username">{{ Auth::guard('client')->user()->fname . ' ' . Auth::guard('client')->user()->lname }}
                 <div class="status">متصل</div>
               </div>
             </div>
 
             <ul id="channel-list">
-              <li class="active">
-                <i class="fa fa-comment" aria-hidden="true" style="color: #f067ae"></i>
-                <span class="username">اسم المستخدم</span> <br>
-                <div class="time">20/6/2018</div>
-              </li>
-              <li>
-                <i class="fa fa-commenting" aria-hidden="true" style="color: #f067ae"></i>
-                <span class="username" >اسم المستخدم</span> <br>
-                <div class="time">20/6/2018</div>
-              </li>
-              <li>
-                <i class="fa fa-comment" aria-hidden="true" style="color: #f067ae"></i>
-                <span class="username">اسم المستخدم</span> <br>
-                <div class="time">20/6/2018</div>
-              </li>
+                @foreach($Clients as $client)
+                    <a href="{{ url('/client/message/'. $client->id) }}">
+                        <li class="active">
+                            <i class="fa fa-comment" aria-hidden="true" style="color: #f067ae"></i>
+                            <span class="username"> {{ \App\Client::find($client->sender_id)->fname . ' ' . \App\Client::find($client->sender_id)->lname }} </span> <br>
+                            <div class="time">{{ Auth::guard('client')->user()->created_at->diffForHumans() }}</div>
+                        </li>
+                    </a>
+                @endforeach
             </ul>
           </div>
 
@@ -497,21 +458,47 @@ li.predictive .message:before {
                       <i class="fa fa-arrow-left"></i>
                     </div>
                   </div>
-                  <div class="title"><span><h3>Discussion avec Jean-DréDré</h3><div class="state" style="display: none;"><i></i></div></span></div>
+                  <div class="title"><span><h3></h3><div class="state" style="display: none;"><i></i></div></span></div>
                   <div class="action-right"></div>
                 </div>
                 <ul id="messages">
-                  <li  class="from message">
-                    <div class="picture" style="background-image: url('https://secure.gravatar.com/avatar/54a10b09b48e5cfaf1ac0bf92c7d32f2?size=400');"></div>
-                    <div class="message bubble"><span class="vaœlue">Bonjour Jean-DréDré, como esta en la casa ?</span> <span class="timestamp">14:25</span></div>
-                  </li>
-                  <li class="message to">
-                    <div class="picture" style="background-image: url('https://secure.gravatar.com/avatar/6ae2903ae85c3dfc76586d9750dee348?s=80&r=g&d=identicon');"></div>
-                    <div class="message bubble"><span class="vaœlue">J'ai des gros pbs avec mon poney</span> <span class="timestamp">14:26</span></div>
-                  </li>
+                    @foreach($ClientChats as $chat)
+                        @if($chat->sender_id ==  Auth::guard('client')->user()->id)
+                            <li  class="from message">
+                                <div class="picture" style="background-image: url({{ asset('files/users/'. Auth::guard('client')->user()->image ) }});"></div>
+                                <div class="message bubble"><span class="vaœlue">{{ $chat->body }}</span> <span class="timestamp">{{ $chat->created_at->diffForHumans() }}</span></div>
+                            </li>
+                        @else
+                            <li class="message to">
+                                <div class="picture" style="background-image: url({{ asset('files/users/'. \App\Client::find($client->sender_id)->image ) }});"></div>
+                                <div class="message bubble"><span class="vaœlue">{{ $chat->body }}</span> <span class="timestamp">{{ $chat->created_at->diffForHumans() }}</span></div>
+                            </li>
+                        @endif
+                    @endforeach
+
+                        <?php
+                            if(Auth::guard('client')->user()->id !== $ClientChats[0]->sender_id)
+                            {
+                                $recev = $ClientChats[0]->sender_id;
+                            }
+                            else
+                            {
+                                $recev = $ClientChats[0]->receiver_id;
+                            }
+                        ?>
                 </ul>
                 <div id="send-message">
-                  <form action="" method="POST"><input id="send" autocomplete="off" maxlength="510" type="text"> <button class="btn btn-success"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path opacity=".4" d="M1.101 21.757L23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path></svg></button></form>
+                  <form action="{{ url('client/message') }}" method="POST" >
+                      {{ csrf_field() }}
+                      <input type="hidden" name="sender_id" value="{{ Auth::guard('client')->user()->id }}" >
+                      <input type="hidden" name="receiver_id" value="{{ $recev }}" >
+                      <input id="send" autocomplete="off" maxlength="510" name="body" type="text">
+                      <button class="btn btn-success">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                              <path opacity=".4" d="M1.101 21.757L23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path>
+                          </svg>
+                      </button>
+                  </form>
                 </div>
               </div>
               <div class="infos pane">
@@ -533,81 +520,18 @@ li.predictive .message:before {
     </div>
   </div>
 </div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<!--/footer-->
-	 
-	 
-		<footer class="footer-distributed" >
-
-			<div class="footer-left">
-					<p class="footer-company-about" style="direction: rtl;text-align: right" >
-					<span style="direction: rtl"> هتجوز </span>
-موقع تعارف وتواصل عريق يضع الوطن العربي والعالم بين يديك من خلال الدردشة والمراسلة والمحادثة والشات للقاء شريك العمر والارتباط بالنصف الآخر و فارس الأحلام. 				</p>
-
-				
 
 
-				
-			</div>
-
-			<div class="footer-center" style="direction: rtl;text-align: center" >
-					<div>
-					<i class="fa fa-envelope"></i>
-					<p>رسائل الادارة</p>
-				</div>
-
-				<div>
-					<i class="fa fa-check"></i>
-					<p>نصائح واقتراحات</p>
-				</div>
-
-				<div>
-					<i class="fa fa-question"></i>
-					<p>الاسئله المتداولة</p>
-				</div>
-
-			
-
-			</div>
-
-			<div class="footer-right">
-<h3><img src="images/logo-man.png"></h3>
-
-			</div>
-
-		</footer>
-
-	 
-	 
-	 
-	 
-	 
-		 
-<footer>
-		<div class="copy">
-		    <p>&copy; 2018 All Rights Reserved | Design by <a href="http://gtsaw.com/">gtsaw</a> </p>
-		</div>
-		</footer>
-		<!--//footer-->
-			
 
 
-<script src="js/jquery.min.js"> </script>
+    @include('visitor.template.footer')
+
+
+
+<script src="/visitor/js/jquery.min.js"> </script>
 <!--/script-->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="/visitor/js/move-top.js"></script>
+<script type="text/javascript" src="/visitor/js/easing.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
 <script src="//cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
 <script>

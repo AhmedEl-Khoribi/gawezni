@@ -30,6 +30,7 @@ Route::post('/client/home','ClientAuth\LoginController@login');
 Route::get('/test','FrontController@pricesValues');
 Route::get('liked', 'FrontController@likes');
 Route::get('blocked', 'FrontController@blocked');
+Route::get('/search', 'FastSearchController@search');
 
   Route::get('/admin/login', 'AdminAuth\LoginController@showLoginForm')->name('login');
   Route::post('/admin/login', 'AdminAuth\LoginController@login');
@@ -113,7 +114,12 @@ Route::group(['prefix' => 'client'], function () {
 
   Route::get('/faq', 'CityController@FAQ');
 
+ Route::get('/message', 'dashboard\MessageToClientsController@message');
+  Route::post('/message', 'dashboard\MessageToClientsController@sendMessageBetweenClients');
+  Route::get('/message/{id}', 'dashboard\MessageToClientsController@viewMessage');
+  
   Route::get('/nsay7', 'CityController@advice');
+  Route::get('/country/city/{id}', 'dashboard\ClientsController@city');
 
   Route::post('/password/email', 'ClientAuth\ForgotPasswordController@sendResetLinkEmail')->name('password.request');
   Route::post('/password/reset', 'ClientAuth\ResetPasswordController@reset')->name('password.email');
