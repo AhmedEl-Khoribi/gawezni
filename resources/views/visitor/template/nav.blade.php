@@ -22,7 +22,7 @@
       @endif
             <li><a href="#"><i class="fa fa-comment"></i>    الدردشه</a></li>
 
-            <li><a href="#"><i class="fa fa-envelope"></i>   الرسائل</a></li>
+         <li><a href="{{ url('/client/message') }}"><i class="fa fa-envelope"></i>   الرسائل</a></li>
             <li><a href="{{ url('liked') }}"><i class="fa fa-heart"></i>     الاعجاب</a></li>
             <li><a href="#"> <i class="fa fa-users"></i>    الزيارات</a></li>
             <li><a href="#"><i class="fa fa-search"></i>    البحث</a></li>
