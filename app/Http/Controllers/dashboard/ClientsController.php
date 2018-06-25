@@ -5,6 +5,9 @@ use App\Http\Controllers\Controller;
 use App\Client;
 use App\Country;
 use App\City;
+use Illuminate\Support\Facade\Mail;
+use App\Mail\ActiveAcount;
+
 class ClientsController extends Controller
 {
     /**
@@ -103,7 +106,13 @@ class ClientsController extends Controller
     }
     public function approve($id)
     {
+
+        $client = Client::find($id);
+
         $user = Client::where('id', $id)->update(['approved' => 'approved']);
+        Mail::to($client->email)->send(new ActiveAccount($client));
+
+
         session()->flash('message', 'User is approved');
         return back();
     }

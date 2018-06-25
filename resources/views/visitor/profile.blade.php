@@ -138,8 +138,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <h5 class="user-mail"><i>{{ $user->geneder }} </i></h5>
     <h5 class="user-company">{{ \App\Country::find($user->city->country_id)->name . ' , ' . $user->city->name }}</h5>
 
-      <a href="{{ '' }}"><button  class="login" style="width: 30%"><i class="fa fa-ban"></i>حظر </button></a>
-      <a href="{{''}}"><button  class="login" style="width: 30%"><i class="fa fa-heart"></i>اعجاب </button></a>
+      <a href="/client/block/{{ $useer->id }}"><button  class="login" style="width: 30%"><i class="fa fa-ban"></i>حظر </button></a>
+      <button  class="login" style="width: 30%"><i class="fa fa-heart"></i>اعجاب </button>
       <a href="{{ url('/client/message/'. $user->id) }}"><button  class="login" style="width: 35%"><i class="fa fa-envelope"></i>ارسال رسالة </button></a>
 
 
