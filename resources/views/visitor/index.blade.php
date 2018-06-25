@@ -194,8 +194,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h3> <i class="fa fa-search"></i>  البحث السريع  </h3>
 					<hr>
 
-				<h5>   النوع:  <span style="padding-right: 30px"> <input type="radio" name="female" style="padding: 50px" > انثي   <input type="radio" name="gender" value="male"> ذكر 
-<input type="radio" name="gender" value="female">
+				<h5>   النوع:  <span style="padding-right: 30px"> انثي   <input type="radio" name="gender" value="female"> ذكر 
+<input type="radio" name="gender" value="male">
 				</span></h5>
       <hr>
 

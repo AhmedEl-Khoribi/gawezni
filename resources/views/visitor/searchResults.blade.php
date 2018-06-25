@@ -284,9 +284,20 @@ label {
         <p class="text--small text--muted">مواليد : {{ $result->dob }}</p>
         <p class="text--small text--muted">الدوله : {{ $result->city->country->name }} </p>
       </div>
+      @php
+        $is_liked = \App\Friend::where('client_id', \Auth::guard('client')->user()->id)->where('friend_id', $result->id)->exists();
+      @endphp
+      @if($is_liked === false)
       <div class="search-item__options">
-        <button class="button button--outline button--small">Add to PNB</button>
+        <button class="button button--outline button--small friend_request"><span id="pending{{ $result->id }}"><i class="fa fa-heart" style="color: red"></i> اعجاب</span></button>
+        <input type="hidden" name="friend_id" value="{{ $result->id }}" class="friend_id">
       </div>
+      @else
+       <div class="search-item__options">
+        <button class="button button--outline button--small friend_request"><span id="pending{{ $result->id }}"><span id="added"><i class="fa fa-clock-o" style="color: red"></i> انتظر تأكيد الطلب</span></button>
+        <input type="hidden" name="friend_id" value="6" class="friend_id">
+      </div>
+      @endif
     </li>
     @endforeach
   </ul>
@@ -303,9 +314,20 @@ label {
         <p class="text--small text--muted">مواليد : {{ $result->dob }}</p>
         <p class="text--small text--muted">الدوله : {{ $result->city->country->name }} </p>
       </div>
+      @php
+        $is_liked = \App\Friend::where('client_id', \Auth::guard('client')->user()->id)->where('friend_id', $result->id)->exists();
+      @endphp
+     @if($is_liked === false)
       <div class="search-item__options">
-        <button class="button button--outline button--small"><i class="fa fa-heart" style="color: red"></i> اعجاب</button>
+        <button class="button button--outline button--small friend_request"><span id="pending{{ $result->id }}"><i class="fa fa-heart" style="color: red"></i> اعجاب</span></button>
+        <input type="hidden" name="friend_id" value="{{ $result->id }}" class="friend_id">
       </div>
+      @else
+      <div class="search-item__options">
+        <button class="button button--outline button--small friend_request"><span id="pending{{ $result->id }}"><span id="pending"><i class="fa fa-clock-o" style="color: red"></i> انتظر تأكيد الطلب</span></span></button>
+        <input type="hidden" name="friend_id" value="{{ $result->id }}" class="friend_id">
+      </div>
+      @endif
     </li>
     @endforeach
   </ul>
