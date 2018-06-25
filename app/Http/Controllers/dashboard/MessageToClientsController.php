@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Client;
 use App\AdminToClientMessages;
+use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class MessageToClientsController extends Controller
 {
@@ -83,6 +86,29 @@ class MessageToClientsController extends Controller
         session()->flash('message', 'تم ارسال الرسالة الى الادارة');
 
         return redirect('/client/home');
+    }
+
+        public function message()
+    {
+        $id = Auth::guard('client')->user()->id;
+        $ClientChats = \App\Mail::where('sender_id',$id)->orWhere('receiver_id',$id)->get();
+        return view('visitor.message',compact('ClientChats'));
+    }
+    public function viewMessage($other)
+    {
+        $id = Auth::guard('client')->user()->id;
+
+        $ClientChats = \App\Mail::where('sender_id',$id)->orWhere('receiver_id',$id)->where('sender_id',$other)->orWhere('receiver_id',$other)->get();
+
+        $Clients = \App\Mail::where('sender_id',$id)->orWhere('receiver_id',$id)->get();
+
+        return view('visitor.chat',compact(['ClientChats','Clients']));
+    }
+    public function sendMessageBetweenClients (Request $request)
+    {
+        $data = $request->all();
+        \App\Mail::create($data);
+        return redirect()->back();
     }
 
 }

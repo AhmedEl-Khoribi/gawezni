@@ -9,7 +9,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <link href="/visitor/css/bootstrap.css" rel="stylesheet" type="text/css" />
 
-    <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/droidarabickufi.css" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Custom-Theme-files-->
@@ -163,7 +163,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <label>ارفع صوره شخصيه</label>
                         <div class="input-file-container">
                             <input class="input-file" id="my-file" type="file" name="image">
-                            <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
+                            <label tabindex="0" for="my-file" class="input-file-trigger" style="width: 100%;text-align: center;">ضع صورة . . . . . </label>
                         </div>
                     </div>
                     <span id="myFileText" class="text-center"></span>

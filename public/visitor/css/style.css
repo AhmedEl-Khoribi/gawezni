@@ -4,13 +4,15 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+
+@import url(https://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
 html, body{
-font-family: 'Cairo', sans-serif;
+font-family: 'Droid Arabic Kufi', sans-serif;
  font-size: 100%;
 }
 
 body a {
-font-family: 'Cairo', sans-serif;
+font-family: 'Droid Arabic Kufi', sans-serif;
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-moz-transition:0.5s all;
@@ -19,16 +21,18 @@ font-family: 'Cairo', sans-serif;
 }
 
 
+.tittle
+{
+    font-family:Droid Arabic Kufi !important;
+}
 
-
-@import url(https://fonts.googleapis.com/css?family=Lily+Script+One);
 
 .navbar{
   height:60px;
   background:linear-gradient(#5b5c60, #0f1010);
   background:-webkit-linear-gradient(#5b5c60, #0f1010);
   background:-moz-linear-gradient(#5b5c60, #0f1010);
-  font-family:arial;
+  font-family:Droid Arabic Kufi;
  }
 .contaier{
   margin:auto;
@@ -37,7 +41,7 @@ font-family: 'Cairo', sans-serif;
   padding:0 0;
 }
 .navbar-brand{
-  font-family: 'Lily Script One', arial;
+  font-family: 'Droid Arabic Kufi', arial;
   color:#e5e7ee;
   padding:0 20px 0px 20px;
   height: 60px;
@@ -132,7 +136,7 @@ font-family: 'Cairo', sans-serif;
 @media(min-width:770px){
   .navbar{
   height:60px;
-  font-family:arial;
+  font-family:Droid Arabic Kufi;
  
 }
   .contaier{
@@ -220,7 +224,7 @@ font-family: 'Cairo', sans-serif;
 
 
 @font-face {
-  font-family: 'Cairo', sans-serif;
+  font-family: 'Droid Arabic Kufi', sans-serif;
    src: url(../fonts/GreatVibes-Regular.ttf)format('truetype');
 }
 a:hover{
@@ -232,17 +236,17 @@ input[type="button"],input[type="submit"],li.parallelogram{
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
-	font-family: 'Cairo', sans-serif;
+	font-family: 'Droid Arabic Kufi', sans-serif;
 }
 h1,h2,h3,h4,h5,h6{
    margin:0;		
-font-family: 'Cairo', sans-serif;
+font-family: 'Droid Arabic Kufi', sans-serif;
    font-weight:400;
 
 }	
 p{
 	margin:0;
-	font-family: 'Cairo', sans-serif;
+	font-family: 'Droid Arabic Kufi', sans-serif;
 }
 ul{
 	margin:0;
@@ -603,7 +607,7 @@ ul a:focus {
     content: "\f111";
   font-size: 0;
   font-family: FontAwesome;
-	font-family: 'Cairo', sans-serif;
+	font-family: 'Droid Arabic Kufi', sans-serif;
   visibility: visible;
   display: block;
      width:14px;
@@ -1043,7 +1047,7 @@ a :hover {
 	color: #fff;
 	display: inline;
 	float: left;
-	font-family: 'Cairo', sans-serif;
+	font-family: 'Droid Arabic Kufi', sans-serif;
 	font-size: 30px;
 	font-weight: normal;
 	margin: 12px 12px 0 0;
@@ -1077,7 +1081,7 @@ a :hover {
 .next-btn > span, .continue-btn > span, #lbform button > span {
 	float: right;
 	font-size: 14px;
-	font-family: 'Cairo', sans-serif;
+	font-family: 'Droid Arabic Kufi', sans-serif;
 	font-weight: 400;
 	line-height: 13px;
 	margin: 7px 0;
@@ -1097,7 +1101,7 @@ a :hover {
 	background: #fff;
 	color: #666;
 	font-size: 14px;
-	font-family: 'Cairo', sans-serif;
+	font-family: 'Droid Arabic Kufi', sans-serif;
 	font-weight: 700;
 	font-style: italic;
 	line-height: 24px;
@@ -1129,7 +1133,7 @@ a :hover {
 	background: rgba(255,255,255,.9);
 	color: #f067ae;
 	border: 0;
-  font-family: 'Cairo', sans-serif;
+  font-family: 'Droid Arabic Kufi', sans-serif;
 	font-size: 14px;
 	font-weight: 700;
 	padding: 0;
@@ -1151,7 +1155,7 @@ a :hover {
 #lbform select {
 	color: #f067ae;
 	border: 0;
-  font-family: 'Cairo', sans-serif;
+  font-family: 'Droid Arabic Kufi', sans-serif;
 	font-size: 14px;
 	box-shadow: none;
 	font-weight: 700;
@@ -1281,7 +1285,7 @@ a :hover {
 .note {
 	display: block;
 	color: #f067ae;
-  font-family: 'Cairo', sans-serif;
+  font-family: 'Droid Arabic Kufi', sans-serif;
 	font-size: 11px;
 	text-align: center;
 	line-height: 15px;
@@ -1296,7 +1300,7 @@ a :hover {
 	background: #f067ae;
 	color: #fff;
 	font-size: 20px;
-	font-family: 'Cairo', sans-serif;
+	font-family: 'Droid Arabic Kufi', sans-serif;
 	width: 100%;
 	padding: 10px 0;
 	font-weight: 700;

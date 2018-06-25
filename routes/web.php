@@ -114,6 +114,10 @@ Route::group(['prefix' => 'client'], function () {
 
   Route::get('/faq', 'CityController@FAQ');
 
+ Route::get('/message', 'dashboard\MessageToClientsController@message');
+  Route::post('/message', 'dashboard\MessageToClientsController@sendMessageBetweenClients');
+  Route::get('/message/{id}', 'dashboard\MessageToClientsController@viewMessage');
+  
   Route::get('/nsay7', 'CityController@advice');
   Route::get('/country/city/{id}', 'dashboard\ClientsController@city');
 
