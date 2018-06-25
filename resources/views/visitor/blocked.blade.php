@@ -35,6 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <br>
 <br>
     <div class="container">
+
         @if($flash = session('message'))
           <div class="alert success">
               <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
@@ -47,7 +48,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               <b>{{ $flash }}</b>
           </div>
       @endif
-    <h1 style="color: #f067ae">قا]مة الحظر</h1>
+
+    <h1 style="color: #f067ae">قائمه الحظر</h1>
         <div class="row">
             <div class="col-sm-12">
                 @php

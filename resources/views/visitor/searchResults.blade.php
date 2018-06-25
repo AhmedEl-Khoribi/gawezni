@@ -279,7 +279,9 @@ label {
       <div class="search-item__image" style="background-image: url(/files/users/{{$result->image}});"></div>
       <div class="search-item__content">
         <p class="text--medium">
-          {{ $result->username }}
+            <a href="{{ 'client/profile/' . $result->id }}">
+                {{ $result->username }}
+            </a>
         </p>
         <p class="text--small text--muted">مواليد : {{ $result->dob }}</p>
         <p class="text--small text--muted">الدوله : {{ $result->city->country->name }} </p>
@@ -309,7 +311,9 @@ label {
     <li class="search-item">
       <div class="search-item__content">
         <p class="text--medium">
-          {{ $result->username }}
+            <a href="{{ 'client/profile/' . $result->id }}">
+                {{ $result->username }}
+            </a>
         </p>
         <p class="text--small text--muted">مواليد : {{ $result->dob }}</p>
         <p class="text--small text--muted">الدوله : {{ $result->city->country->name }} </p>
