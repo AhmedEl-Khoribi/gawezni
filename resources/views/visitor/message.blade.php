@@ -60,6 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<tr>
 							<td><a href="{{ url('/client/message/'. $chat->id) }}">{{ \App\Client::find($chat->sender_id)->fname . ' ' . \App\Client::find($chat->sender_id)->lname }}</a></td>
 							<td>{{ $chat->body }}</td>
+
 							<td>{{ $chat->created_at }}</td>
 						</tr>
 					@endforeach
