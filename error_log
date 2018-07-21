@@ -1,0 +1,6 @@
+[29-Jun-2018 13:11:35 UTC] PHP Fatal error:  Cannot use [] for reading in /home1/gtsaw1/hatgwez.com/app/Http/Controllers/FastSearchController.php on line 13
+[02-Jul-2018 08:05:30 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home1/gtsaw1/hatgwez.com/app/Http/Controllers/FastSearchController.php on line 124
+[02-Jul-2018 08:06:12 UTC] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home1/gtsaw1/hatgwez.com/app/Http/Controllers/FastSearchController.php on line 124
+[03-Jul-2018 09:49:37 UTC] PHP Warning:  Unterminated comment starting line 2 in /home1/gtsaw1/hatgwez.com/vendor/laravel/framework/src/Illuminate/View/Compilers/BladeCompiler.php on line 170
+[03-Jul-2018 09:49:37 UTC] PHP Warning:  Unterminated comment starting line 2 in /home1/gtsaw1/hatgwez.com/storage/framework/views/499a7fc92d350b96de9fd6077e834b2a819bbd7b.php on line 2
+[03-Jul-2018 09:49:43 UTC] PHP Warning:  Unterminated comment starting line 2 in /home1/gtsaw1/hatgwez.com/storage/framework/views/499a7fc92d350b96de9fd6077e834b2a819bbd7b.php on line 2
